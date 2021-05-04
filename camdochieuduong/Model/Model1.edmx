@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="camdochieuduongModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CauHinh">
+          <Key>
+            <PropertyRef Name="ServerIP" />
+          </Key>
+          <Property Name="ServerIP" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="ServerAccount" Type="nchar" MaxLength="50" />
+          <Property Name="ServerPassword" Type="nchar" MaxLength="50" />
+          <Property Name="SqlName" Type="nchar" MaxLength="50" />
+          <Property Name="MayInA4" Type="nchar" MaxLength="50" />
+          <Property Name="MayInA7" Type="nchar" MaxLength="50" />
+          <Property Name="LaiDuoi10Tr" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="LaiTren10Tr" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="SoNgayApDung" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="SoNgayToiHan" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="GiaoDich">
+          <Key>
+            <PropertyRef Name="IDBienNhan" />
+          </Key>
+          <Property Name="IDBienNhan" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NgayCam" Type="datetime" />
+          <Property Name="KhachHang" Type="nvarchar" MaxLength="200" />
+          <Property Name="DienThoai" Type="nchar" MaxLength="50" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
+          <Property Name="GiaTri" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="TienCam" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="TruHotCon" Type="nvarchar" MaxLength="200" />
+          <Property Name="InBienNhan" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Canceled" Type="nvarchar" MaxLength="1" />
+          <Property Name="ThayTheCho" Type="nvarchar" MaxLength="50" />
+          <Property Name="ThayTheBang" Type="nvarchar" MaxLength="50" />
+          <Property Name="DonGoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="DaChuoc" Type="nvarchar" MaxLength="1" />
+          <Property Name="BaoMat" Type="nvarchar" MaxLength="1" />
+          <Property Name="TienLai" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="LoaiGiaoDich" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NumberRange">
+          <Key>
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Type" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Year" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="Month" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="ID" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ThuChi">
+          <Key>
+            <PropertyRef Name="MaThuChi" />
+          </Key>
+          <Property Name="MaThuChi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NgayNhap" Type="datetime" />
+          <Property Name="LoaiGiaoDich" Type="nchar" MaxLength="3" />
+          <Property Name="SoTien" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="MoTa" Type="nchar" MaxLength="50" />
+          <Property Name="Cancel" Type="nchar" MaxLength="1" />
+        </EntityType>
+        <EntityContainer Name="camdochieuduongModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CauHinh" EntityType="Self.CauHinh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GiaoDich" EntityType="Self.GiaoDich" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NumberRange" EntityType="Self.NumberRange" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThuChi" EntityType="Self.ThuChi" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="camdochieuduongModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CauHinh">
+          <Key>
+            <PropertyRef Name="ServerIP" />
+          </Key>
+          <Property Name="ServerIP" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ServerAccount" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="ServerPassword" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="SqlName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="MayInA4" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="MayInA7" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="LaiDuoi10Tr" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LaiTren10Tr" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="SoNgayApDung" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="SoNgayToiHan" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="NumberRange">
+          <Key>
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Year" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Month" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="camdochieuduongEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="CauHinhs" EntityType="Self.CauHinh" />
+          <EntitySet Name="NumberRanges" EntityType="Self.NumberRange" />
+          <EntitySet Name="GiaoDiches" EntityType="camdochieuduongModel.GiaoDich" />
+          <EntitySet Name="ThuChis" EntityType="camdochieuduongModel.ThuChi" />
+        </EntityContainer>
+        <EntityType Name="GiaoDich">
+          <Key>
+            <PropertyRef Name="IDBienNhan" />
+          </Key>
+          <Property Name="IDBienNhan" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NgayCam" Type="DateTime" Precision="3" />
+          <Property Name="KhachHang" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="MoTa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="GiaTri" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TienCam" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TruHotCon" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="InBienNhan" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Canceled" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ThayTheCho" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ThayTheBang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DonGoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DaChuoc" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="BaoMat" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="TienLai" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LoaiGiaoDich" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ThuChi">
+          <Key>
+            <PropertyRef Name="MaThuChi" />
+          </Key>
+          <Property Name="MaThuChi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NgayNhap" Type="DateTime" Precision="3" />
+          <Property Name="SoTien" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MoTa" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Cancel" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="LoaiGiaoDich" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="camdochieuduongModelStoreContainer" CdmEntityContainer="camdochieuduongEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="camdochieuduongModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CauHinhs">
+            <EntityTypeMapping TypeName="camdochieuduongModel.CauHinh">
+              <MappingFragment StoreEntitySet="CauHinh">
+                <ScalarProperty Name="ServerIP" ColumnName="ServerIP" />
+                <ScalarProperty Name="ServerAccount" ColumnName="ServerAccount" />
+                <ScalarProperty Name="ServerPassword" ColumnName="ServerPassword" />
+                <ScalarProperty Name="SqlName" ColumnName="SqlName" />
+                <ScalarProperty Name="MayInA4" ColumnName="MayInA4" />
+                <ScalarProperty Name="MayInA7" ColumnName="MayInA7" />
+                <ScalarProperty Name="LaiDuoi10Tr" ColumnName="LaiDuoi10Tr" />
+                <ScalarProperty Name="LaiTren10Tr" ColumnName="LaiTren10Tr" />
+                <ScalarProperty Name="SoNgayApDung" ColumnName="SoNgayApDung" />
+                <ScalarProperty Name="SoNgayToiHan" ColumnName="SoNgayToiHan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NumberRanges">
+            <EntityTypeMapping TypeName="camdochieuduongModel.NumberRange">
+              <MappingFragment StoreEntitySet="NumberRange">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GiaoDiches">
+            <EntityTypeMapping TypeName="camdochieuduongModel.GiaoDich">
+              <MappingFragment StoreEntitySet="GiaoDich">
+                <ScalarProperty Name="LoaiGiaoDich" ColumnName="LoaiGiaoDich" />
+                <ScalarProperty Name="TienLai" ColumnName="TienLai" />
+                <ScalarProperty Name="BaoMat" ColumnName="BaoMat" />
+                <ScalarProperty Name="DaChuoc" ColumnName="DaChuoc" />
+                <ScalarProperty Name="DonGoc" ColumnName="DonGoc" />
+                <ScalarProperty Name="ThayTheBang" ColumnName="ThayTheBang" />
+                <ScalarProperty Name="ThayTheCho" ColumnName="ThayTheCho" />
+                <ScalarProperty Name="Canceled" ColumnName="Canceled" />
+                <ScalarProperty Name="InBienNhan" ColumnName="InBienNhan" />
+                <ScalarProperty Name="TruHotCon" ColumnName="TruHotCon" />
+                <ScalarProperty Name="TienCam" ColumnName="TienCam" />
+                <ScalarProperty Name="GiaTri" ColumnName="GiaTri" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="KhachHang" ColumnName="KhachHang" />
+                <ScalarProperty Name="NgayCam" ColumnName="NgayCam" />
+                <ScalarProperty Name="IDBienNhan" ColumnName="IDBienNhan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThuChis">
+            <EntityTypeMapping TypeName="camdochieuduongModel.ThuChi">
+              <MappingFragment StoreEntitySet="ThuChi">
+                <ScalarProperty Name="LoaiGiaoDich" ColumnName="LoaiGiaoDich" />
+                <ScalarProperty Name="Cancel" ColumnName="Cancel" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="SoTien" ColumnName="SoTien" />
+                <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+                <ScalarProperty Name="MaThuChi" ColumnName="MaThuChi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

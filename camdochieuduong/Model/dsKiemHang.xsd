@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsKiemHang" targetNamespace="http://tempuri.org/dsKiemHang.xsd" xmlns:mstns="http://tempuri.org/dsKiemHang.xsd" xmlns="http://tempuri.org/dsKiemHang.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsKiemHang" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsKiemHang" msprop:Generator_UserDSName="dsKiemHang">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbKiemHang" msprop:Generator_TableClassName="tbKiemHangDataTable" msprop:Generator_TableVarName="tabletbKiemHang" msprop:Generator_TablePropName="tbKiemHang" msprop:Generator_RowDeletingName="tbKiemHangRowDeleting" msprop:Generator_RowChangingName="tbKiemHangRowChanging" msprop:Generator_RowEvHandlerName="tbKiemHangRowChangeEventHandler" msprop:Generator_RowDeletedName="tbKiemHangRowDeleted" msprop:Generator_UserTableName="tbKiemHang" msprop:Generator_RowChangedName="tbKiemHangRowChanged" msprop:Generator_RowEvArgName="tbKiemHangRowChangeEvent" msprop:Generator_RowClassName="tbKiemHangRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDBienNhan" msdata:Caption="Mã Đơn Hàng" msprop:Generator_ColumnVarNameInTable="columnIDBienNhan" msprop:Generator_ColumnPropNameInRow="IDBienNhan" msprop:Generator_ColumnPropNameInTable="IDBienNhanColumn" msprop:Generator_UserColumnName="IDBienNhan" type="xs:string" minOccurs="0" />
+              <xs:element name="NgayCam" msdata:Caption="Ngày" msprop:Generator_ColumnVarNameInTable="columnNgayCam" msprop:Generator_ColumnPropNameInRow="NgayCam" msprop:Generator_ColumnPropNameInTable="NgayCamColumn" msprop:Generator_UserColumnName="NgayCam" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NgayToiHan" msdata:Caption="Ngày Tới Hạn" msprop:Generator_ColumnVarNameInTable="columnNgayToiHan" msprop:Generator_ColumnPropNameInRow="NgayToiHan" msprop:Generator_ColumnPropNameInTable="NgayToiHanColumn" msprop:Generator_UserColumnName="NgayToiHan" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="SoNgay" msdata:Caption="Số Ngày Cầm" msprop:Generator_ColumnVarNameInTable="columnSoNgay" msprop:Generator_ColumnPropNameInRow="SoNgay" msprop:Generator_ColumnPropNameInTable="SoNgayColumn" msprop:Generator_UserColumnName="SoNgay" type="xs:long" minOccurs="0" />
+              <xs:element name="LoaiGiaoDich" msdata:Caption="Loại Giao Dịch" msprop:Generator_ColumnVarNameInTable="columnLoaiGiaoDich" msprop:Generator_ColumnPropNameInRow="LoaiGiaoDich" msprop:Generator_ColumnPropNameInTable="LoaiGiaoDichColumn" msprop:Generator_UserColumnName="LoaiGiaoDich" type="xs:string" minOccurs="0" />
+              <xs:element name="KhachHang" msdata:Caption="Khách Hàng" msprop:Generator_ColumnVarNameInTable="columnKhachHang" msprop:Generator_ColumnPropNameInRow="KhachHang" msprop:Generator_ColumnPropNameInTable="KhachHangColumn" msprop:Generator_UserColumnName="KhachHang" type="xs:string" minOccurs="0" />
+              <xs:element name="DienThoai" msdata:Caption="Điện Thoại" msprop:Generator_ColumnVarNameInTable="columnDienThoai" msprop:Generator_ColumnPropNameInRow="DienThoai" msprop:Generator_ColumnPropNameInTable="DienThoaiColumn" msprop:Generator_UserColumnName="DienThoai" type="xs:string" minOccurs="0" />
+              <xs:element name="MoTa" msdata:Caption="Mô Tả" msprop:Generator_ColumnVarNameInTable="columnMoTa" msprop:Generator_ColumnPropNameInRow="MoTa" msprop:Generator_ColumnPropNameInTable="MoTaColumn" msprop:Generator_UserColumnName="MoTa" type="xs:string" minOccurs="0" />
+              <xs:element name="TienCam" msdata:Caption="Tiền Cầm" msprop:Generator_ColumnVarNameInTable="columnTienCam" msprop:Generator_ColumnPropNameInRow="TienCam" msprop:Generator_ColumnPropNameInTable="TienCamColumn" msprop:Generator_UserColumnName="TienCam" type="xs:long" minOccurs="0" />
+              <xs:element name="TienLai" msdata:Caption="Ước Tính Tiền Lãi" msprop:Generator_ColumnVarNameInTable="columnTienLai" msprop:Generator_ColumnPropNameInRow="TienLai" msprop:Generator_ColumnPropNameInTable="TienLaiColumn" msprop:Generator_UserColumnName="TienLai" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsThuChi" targetNamespace="http://tempuri.org/dsThuChi.xsd" xmlns:mstns="http://tempuri.org/dsThuChi.xsd" xmlns="http://tempuri.org/dsThuChi.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsThuChi" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsThuChi" msprop:Generator_UserDSName="dsThuChi">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbThuChi" msprop:Generator_TableClassName="tbThuChiDataTable" msprop:Generator_TableVarName="tabletbThuChi" msprop:Generator_TablePropName="tbThuChi" msprop:Generator_RowDeletingName="tbThuChiRowDeleting" msprop:Generator_RowChangingName="tbThuChiRowChanging" msprop:Generator_RowEvHandlerName="tbThuChiRowChangeEventHandler" msprop:Generator_RowDeletedName="tbThuChiRowDeleted" msprop:Generator_UserTableName="tbThuChi" msprop:Generator_RowChangedName="tbThuChiRowChanged" msprop:Generator_RowEvArgName="tbThuChiRowChangeEvent" msprop:Generator_RowClassName="tbThuChiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MaThuChi" msprop:Generator_ColumnVarNameInTable="columnMaThuChi" msprop:Generator_ColumnPropNameInRow="MaThuChi" msprop:Generator_ColumnPropNameInTable="MaThuChiColumn" msprop:Generator_UserColumnName="MaThuChi" type="xs:string" minOccurs="0" />
+              <xs:element name="NgayNhap" msdata:Caption="Ngày Nhập" msprop:Generator_ColumnVarNameInTable="columnNgayNhap" msprop:Generator_ColumnPropNameInRow="NgayNhap" msprop:Generator_ColumnPropNameInTable="NgayNhapColumn" msprop:Generator_UserColumnName="NgayNhap" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LoaiGiaoDich" msdata:Caption="Thu/Chi" msprop:Generator_ColumnVarNameInTable="columnLoaiGiaoDich" msprop:Generator_ColumnPropNameInRow="LoaiGiaoDich" msprop:Generator_ColumnPropNameInTable="LoaiGiaoDichColumn" msprop:Generator_UserColumnName="LoaiGiaoDich" type="xs:string" minOccurs="0" />
+              <xs:element name="SoTien" msdata:Caption="Số Tiền" msprop:Generator_ColumnVarNameInTable="columnSoTien" msprop:Generator_ColumnPropNameInRow="SoTien" msprop:Generator_ColumnPropNameInTable="SoTienColumn" msprop:Generator_UserColumnName="SoTien" type="xs:long" minOccurs="0" />
+              <xs:element name="MoTa" msdata:Caption="Mô Tả" msprop:Generator_ColumnVarNameInTable="columnMoTa" msprop:Generator_ColumnPropNameInRow="MoTa" msprop:Generator_ColumnPropNameInTable="MoTaColumn" msprop:Generator_UserColumnName="MoTa" type="xs:string" minOccurs="0" />
+              <xs:element name="Cancel" msdata:Caption="Hủy" msprop:Generator_ColumnVarNameInTable="columnCancel" msprop:Generator_ColumnPropNameInRow="Cancel" msprop:Generator_ColumnPropNameInTable="CancelColumn" msprop:Generator_UserColumnName="Cancel" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
