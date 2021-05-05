@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsCamDo" targetNamespace="http://tempuri.org/dsCamDo.xsd" xmlns:mstns="http://tempuri.org/dsCamDo.xsd" xmlns="http://tempuri.org/dsCamDo.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsCamDo" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsCamDo" msprop:Generator_UserDSName="dsCamDo">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbCamDo" msprop:Generator_TableClassName="tbCamDoDataTable" msprop:Generator_TableVarName="tabletbCamDo" msprop:Generator_TablePropName="tbCamDo" msprop:Generator_RowDeletingName="tbCamDoRowDeleting" msprop:Generator_RowChangingName="tbCamDoRowChanging" msprop:Generator_RowEvHandlerName="tbCamDoRowChangeEventHandler" msprop:Generator_RowDeletedName="tbCamDoRowDeleted" msprop:Generator_UserTableName="tbCamDo" msprop:Generator_RowChangedName="tbCamDoRowChanged" msprop:Generator_RowEvArgName="tbCamDoRowChangeEvent" msprop:Generator_RowClassName="tbCamDoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IDBienNhan" msdata:Caption="Mã Đơn Hàng" msprop:Generator_ColumnVarNameInTable="columnIDBienNhan" msprop:Generator_ColumnPropNameInRow="IDBienNhan" msprop:Generator_ColumnPropNameInTable="IDBienNhanColumn" msprop:Generator_UserColumnName="IDBienNhan" type="xs:string" minOccurs="0" />
+              <xs:element name="NgayCam" msdata:Caption="Ngày Cầm" msprop:Generator_ColumnVarNameInTable="columnNgayCam" msprop:Generator_ColumnPropNameInRow="NgayCam" msprop:Generator_ColumnPropNameInTable="NgayCamColumn" msprop:Generator_UserColumnName="NgayCam" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="KhachHang" msdata:Caption="Khách Hàng" msprop:Generator_ColumnVarNameInTable="columnKhachHang" msprop:Generator_ColumnPropNameInRow="KhachHang" msprop:Generator_ColumnPropNameInTable="KhachHangColumn" msprop:Generator_UserColumnName="KhachHang" type="xs:string" minOccurs="0" />
+              <xs:element name="DienThoai" msdata:Caption="Điện Thoại" msprop:Generator_ColumnVarNameInTable="columnDienThoai" msprop:Generator_ColumnPropNameInRow="DienThoai" msprop:Generator_ColumnPropNameInTable="DienThoaiColumn" msprop:Generator_UserColumnName="DienThoai" type="xs:string" minOccurs="0" />
+              <xs:element name="MoTa" msdata:Caption="Mô Tả" msprop:Generator_ColumnVarNameInTable="columnMoTa" msprop:Generator_ColumnPropNameInRow="MoTa" msprop:Generator_ColumnPropNameInTable="MoTaColumn" msprop:Generator_UserColumnName="MoTa" type="xs:string" minOccurs="0" />
+              <xs:element name="TruHotCon" msdata:Caption="Trừ Hột Còn" msprop:Generator_ColumnVarNameInTable="columnTruHotCon" msprop:Generator_ColumnPropNameInRow="TruHotCon" msprop:Generator_ColumnPropNameInTable="TruHotConColumn" msprop:Generator_UserColumnName="TruHotCon" type="xs:string" minOccurs="0" />
+              <xs:element name="TienCam" msdata:Caption="Tiền Cầm" msprop:Generator_ColumnVarNameInTable="columnTienCam" msprop:Generator_ColumnPropNameInRow="TienCam" msprop:Generator_ColumnPropNameInTable="TienCamColumn" msprop:Generator_UserColumnName="TienCam" type="xs:long" minOccurs="0" />
+              <xs:element name="GiaTri" msdata:Caption="Giá Trị" msprop:Generator_ColumnVarNameInTable="columnGiaTri" msprop:Generator_ColumnPropNameInRow="GiaTri" msprop:Generator_ColumnPropNameInTable="GiaTriColumn" msprop:Generator_UserColumnName="GiaTri" type="xs:long" minOccurs="0" />
+              <xs:element name="InBienNhan" msdata:Caption="In Biên Nhận" msprop:Generator_ColumnVarNameInTable="columnInBienNhan" msprop:Generator_ColumnPropNameInRow="InBienNhan" msprop:Generator_ColumnPropNameInTable="InBienNhanColumn" msprop:Generator_UserColumnName="InBienNhan" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

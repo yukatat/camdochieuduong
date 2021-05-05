@@ -89,11 +89,17 @@
       <DependentUpon>fLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Function\myFunction.cs" />
+    <Compile Include="Function\SingleConnection.cs" />
     <Compile Include="Model\Account.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CauHinh.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\dsCamDo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCamDo.xsd</DependentUpon>
     </Compile>
     <Compile Include="Model\dsKiemHang.cs">
       <DependentUpon>dsKiemHang.xsd</DependentUpon>
@@ -189,6 +195,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Model\dsCamDo.xsc">
+      <DependentUpon>dsCamDo.xsd</DependentUpon>
+    </None>
+    <None Include="Model\dsCamDo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCamDo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Model\dsCamDo.xss">
+      <DependentUpon>dsCamDo.xsd</DependentUpon>
+    </None>
     <None Include="Model\dsKiemHang.xsc">
       <DependentUpon>dsKiemHang.xsd</DependentUpon>
     </None>
@@ -279,6 +296,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Image\cdicon.ico" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
