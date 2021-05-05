@@ -439,7 +439,7 @@ namespace camdochieuduong.Model {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tbTimKiemRow AddtbTimKiemRow(string IDBienNhan, string NgayCam, string LoaiGiaoDich, string KhachHang, string DienThoai, string MoTa, long TienCam, long TienLai, long ThanhToan) {
+            public tbTimKiemRow AddtbTimKiemRow(string IDBienNhan, System.DateTime NgayCam, string LoaiGiaoDich, string KhachHang, string DienThoai, string MoTa, long TienCam, long TienLai, long ThanhToan) {
                 tbTimKiemRow rowtbTimKiemRow = ((tbTimKiemRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IDBienNhan,
@@ -489,7 +489,7 @@ namespace camdochieuduong.Model {
             private void InitClass() {
                 this.columnIDBienNhan = new global::System.Data.DataColumn("IDBienNhan", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIDBienNhan);
-                this.columnNgayCam = new global::System.Data.DataColumn("NgayCam", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnNgayCam = new global::System.Data.DataColumn("NgayCam", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNgayCam);
                 this.columnLoaiGiaoDich = new global::System.Data.DataColumn("LoaiGiaoDich", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLoaiGiaoDich);
@@ -672,10 +672,10 @@ namespace camdochieuduong.Model {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string NgayCam {
+            public System.DateTime NgayCam {
                 get {
                     try {
-                        return ((string)(this[this.tabletbTimKiem.NgayCamColumn]));
+                        return ((global::System.DateTime)(this[this.tabletbTimKiem.NgayCamColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'NgayCam\' in table \'tbTimKiem\' is DBNull.", e);

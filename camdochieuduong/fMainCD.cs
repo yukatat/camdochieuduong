@@ -280,11 +280,6 @@ namespace camdochieuduong
 
         }
 
-        private void gridtgHistory_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void gridView2_RowClick(object sender, RowClickEventArgs e)
         {
             //Lay thong tin Don Goc
