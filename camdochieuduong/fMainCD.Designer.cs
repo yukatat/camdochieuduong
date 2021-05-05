@@ -523,6 +523,8 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsView.RowAutoHeight = true;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colNgayCam, DevExpress.Data.ColumnSortOrder.Descending)});
             // 
             // colIDBienNhan
             // 
