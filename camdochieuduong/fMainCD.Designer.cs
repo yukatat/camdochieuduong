@@ -81,6 +81,7 @@
             this.colLoaiGiaoDich = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colThayTheCho = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.btnBaoMat = new DevExpress.XtraEditors.SimpleButton();
             this.lblSum = new System.Windows.Forms.Label();
             this.btntgChuoc = new DevExpress.XtraEditors.SimpleButton();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
@@ -94,6 +95,7 @@
             this.colIDBienNhan1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKhachHang1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMoTa1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemMemoEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.colTienCam1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTienLai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNgayCam1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -102,7 +104,6 @@
             this.colDienThoai1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGiaTri1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.btnBaoMat = new DevExpress.XtraEditors.SimpleButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtmadonthaygiay = new DevExpress.XtraEditors.TextEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -329,6 +330,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridGiaoDichBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridGiaoDich)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -933,6 +935,7 @@
             // 
             // groupControl4
             // 
+            this.groupControl4.Controls.Add(this.btnBaoMat);
             this.groupControl4.Controls.Add(this.lblSum);
             this.groupControl4.Controls.Add(this.btntgChuoc);
             this.groupControl4.Controls.Add(this.btnClear);
@@ -944,6 +947,16 @@
             this.groupControl4.Size = new System.Drawing.Size(1532, 263);
             this.groupControl4.TabIndex = 1;
             this.groupControl4.Text = "Danh Sách Hóa Đơn";
+            // 
+            // btnBaoMat
+            // 
+            this.btnBaoMat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBaoMat.ImageOptions.Image")));
+            this.btnBaoMat.Location = new System.Drawing.Point(1211, 229);
+            this.btnBaoMat.Name = "btnBaoMat";
+            this.btnBaoMat.Size = new System.Drawing.Size(75, 23);
+            this.btnBaoMat.TabIndex = 5;
+            this.btnBaoMat.Text = "Báo Mất";
+            this.btnBaoMat.Click += new System.EventHandler(this.btnBaoMat_Click);
             // 
             // lblSum
             // 
@@ -1004,6 +1017,8 @@
             this.gridThayGiay.Location = new System.Drawing.Point(6, 24);
             this.gridThayGiay.MainView = this.gridView2;
             this.gridThayGiay.Name = "gridThayGiay";
+            this.gridThayGiay.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemMemoEdit5});
             this.gridThayGiay.Size = new System.Drawing.Size(1521, 234);
             this.gridThayGiay.TabIndex = 0;
             this.gridThayGiay.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1075,11 +1090,17 @@
             // colMoTa1
             // 
             this.colMoTa1.Caption = "Mô Tả";
+            this.colMoTa1.ColumnEdit = this.repositoryItemMemoEdit5;
             this.colMoTa1.FieldName = "MoTa";
             this.colMoTa1.Name = "colMoTa1";
             this.colMoTa1.Visible = true;
             this.colMoTa1.VisibleIndex = 6;
             this.colMoTa1.Width = 302;
+            // 
+            // repositoryItemMemoEdit5
+            // 
+            this.repositoryItemMemoEdit5.Name = "repositoryItemMemoEdit5";
+            this.repositoryItemMemoEdit5.WordWrap = false;
             // 
             // colTienCam1
             // 
@@ -1157,23 +1178,12 @@
             // 
             // groupControl2
             // 
-            this.groupControl2.Controls.Add(this.btnBaoMat);
             this.groupControl2.Controls.Add(this.panel1);
             this.groupControl2.Location = new System.Drawing.Point(4, 4);
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(1532, 81);
             this.groupControl2.TabIndex = 0;
             this.groupControl2.Text = "Thông Tin Hóa Đơn";
-            // 
-            // btnBaoMat
-            // 
-            this.btnBaoMat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBaoMat.ImageOptions.Image")));
-            this.btnBaoMat.Location = new System.Drawing.Point(1452, 32);
-            this.btnBaoMat.Name = "btnBaoMat";
-            this.btnBaoMat.Size = new System.Drawing.Size(75, 23);
-            this.btnBaoMat.TabIndex = 5;
-            this.btnBaoMat.Text = "Báo Mất";
-            this.btnBaoMat.Click += new System.EventHandler(this.btnBaoMat_Click);
             // 
             // panel1
             // 
@@ -2458,7 +2468,6 @@
             // 
             // cmbtcthuchi
             // 
-            this.cmbtcthuchi.Enabled = false;
             this.cmbtcthuchi.Font = new System.Drawing.Font("Tahoma", 12F);
             this.cmbtcthuchi.FormattingEnabled = true;
             this.cmbtcthuchi.Location = new System.Drawing.Point(96, 11);
@@ -2985,6 +2994,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridGiaoDichBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridGiaoDich)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -3394,6 +3404,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit2;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit3;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit4;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit5;
     }
 }
 
