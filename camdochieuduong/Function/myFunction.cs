@@ -122,6 +122,7 @@ namespace camdochieuduong.Function
             rptDoc.SetParameterValue("P_TienCam", String.Format("{0:n0}", GD.TienCam));
             rptDoc.SetParameterValue("P_GiaTri", String.Format("{0:n0}", GD.GiaTri));
             rptDoc.SetParameterValue("P_NgayCam", GD.NgayCam.ToString());
+            rptDoc.SetParameterValue("P_GioCam", GD.NgayCam.Value.TimeOfDay.ToString());
             rptDoc.SetParameterValue("P_TienCamChu", TienCamChu);
             rptDoc.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
             rptDoc.PrintOptions.PaperSize = CrystalDecisions.Shared.PaperSize.PaperA5;
