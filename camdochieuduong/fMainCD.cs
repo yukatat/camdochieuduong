@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.Configuration;
+using System.Collections.Specialized;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,12 +20,16 @@ namespace camdochieuduong
 {
     public partial class fMainCD : Form
     {
+        
         private Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
+
+        
         public fMainCD()
         {
             InitializeComponent();
             setInit();
             getGrid1();
+            
         }
         private void getGrid1()
         {
@@ -52,6 +58,8 @@ namespace camdochieuduong
         }
         private void setInit()
         {
+            var ServerClient = Constants.Server; //Sever/Client app config --important
+
             txtngaycam.Text = DateTime.Now.ToString();
             txtkhachhang.Text = "";
             txtdienthoai.Text = "";
@@ -70,6 +78,7 @@ namespace camdochieuduong
             btnClear.Enabled = true;
             btntk1Cancel.Enabled = true;
             //
+            txttk1loaigiaodich.Items.Clear();
             txttk1loaigiaodich.Items.Add(Constants.CamDo);
             txttk1loaigiaodich.Items.Add(Constants.ThayGiay);
             txttk1loaigiaodich.Items.Add(Constants.ChuocDo);
@@ -77,8 +86,31 @@ namespace camdochieuduong
 
             //thuchi
             txttcngaynhap.Text = DateTime.Now.ToString();
+            cmbtcthuchi.Items.Clear();
             cmbtcthuchi.Items.Add(Constants.Thu);
             cmbtcthuchi.Items.Add(Constants.Chi);
+
+            if (ServerClient ==  Constants.Server) //Server
+            {
+                this.Text = this.Text + "(" + Constants.Server +")";
+            }
+            else //Client
+            {
+                this.Text = this.Text + "(" + Constants.Client + ")";
+                xtraTabControl.TabPages[2].PageVisible = false;
+                xtraTabControl.TabPages[3].PageVisible = false;
+                xtraTabControl.TabPages[4].PageVisible = false;
+                xtraTabControl.TabPages[5].PageVisible = false;
+                xtraTabControl.TabPages[6].PageVisible = false;
+
+            }
+
+            //Cau Hinh
+            Model.CauHinh CH = camdochieuduongEntity.CauHinhs.Find(Constants.CamDo);
+            txtchlaitren10tr.Text = CH.LaiTren10Tr.ToString();
+            txtchlaiduoi10tr.Text = CH.LaiDuoi10Tr.ToString();
+            txtchsongayapdung.Text = CH.SoNgayApDung.ToString();
+            txtchsongaytoihan.Text = CH.SoNgayToiHan.ToString();
 
 
         }
@@ -121,7 +153,8 @@ namespace camdochieuduong
                                                                     Constants.CamDo,
                                                                     "0");
                 //Print 
-                myFunction.PrintToPrinterA4(IDBienNhan);
+                string a4printer = ConfigurationManager.AppSettings.Get("a4printer");
+                myFunction.PrintToPrinterA4(IDBienNhan, a4printer);
 
                 //////In giay nho- Tam thoi disable in giay nho chuc nang cam do
                 ////var CamThem = "";
@@ -193,17 +226,18 @@ namespace camdochieuduong
                         double SoNgay = (currDate - toDate).TotalDays + 1;
                         dr["SoNgay"] = SoNgay;
                         double SoTienCam = Convert.ToInt64(GD.TienCam);
+                        //Model.CauHinh CH = camdochieuduongEntity.GiaoDiches.FirstOrDefault();
+                        double laisuat = 0;
                         if (SoTienCam >= 10000000)
                         { //Lon hon hoac = 10tr, 2%
-                            var roundTienLai = Math.Round((SoNgay * SoTienCam * 2 / 100 / 1000), 3);
-                            dr["TienLai"] = roundTienLai * 1000;
-
+                            laisuat = Convert.ToDouble(txtchlaitren10tr.Text);
                         }
                         else
                         {
-                            var roundTienLai = Math.Round((SoNgay * SoTienCam * 2.5 / 100 / 1000), 3);
-                            dr["TienLai"] = roundTienLai * 1000;
-                        };
+                            laisuat = Convert.ToDouble(txtchlaiduoi10tr.Text);
+                        }
+                        var roundTienLai = Math.Round((SoNgay * SoTienCam * laisuat / 100 / 1000), 3);
+                        dr["TienLai"] = roundTienLai * 1000;
                         gridGiaoDich._gridGiaoDich.Rows.Add(dr);
                         gridThayGiay.DataSource = gridGiaoDich._gridGiaoDich;
                         //clear ma don hang
@@ -257,7 +291,8 @@ namespace camdochieuduong
                     GD.TienLai = Convert.ToInt64(gridView2.GetRowCellValue(i, "TienLai").ToString());
                     camdochieuduongEntity.SaveChanges();
                     //In bien nhan moi
-                    myFunction.PrintToPrinterA4(IDBienNhanNew);
+                    string a4printer = ConfigurationManager.AppSettings.Get("a4printer");
+                    myFunction.PrintToPrinterA4(IDBienNhanNew, a4printer);
                     //////In giay nho Tam thoi disable
                     ////long ChenhLech = Convert.ToInt64(gridView2.GetRowCellValue(i, "TienCam").ToString()) - Convert.ToInt64(GD.TienCam);
                     ////var CamThem = "";
@@ -548,6 +583,7 @@ namespace camdochieuduong
             dsKiemHang.tbKiemHang.Clear();
             int count = 0;
             long sum = 0;
+            
             var fromdate = txtkhtungay.Value.Date;
             var todate = txtkhdenngay.Value.AddDays(1).Date;
             var listGiaoDich = camdochieuduongEntity.GiaoDiches.Where(x => x.NgayCam >= fromdate && x.NgayCam <= todate).ToList();
@@ -575,17 +611,17 @@ namespace camdochieuduong
                     dr["DienThoai"] = GD.DienThoai;
 
                     double SoTienCam = Convert.ToInt64(GD.TienCam);
+                    double laisuat = 0;
                     if (SoTienCam >= 10000000)
                     { //Lon hon hoac = 10tr, 2%
-                        var roundTienLai = Math.Round((SoNgay * SoTienCam * 2 / 100 / 1000), 3);
-                        dr["TienLai"] = roundTienLai * 1000;
-
+                        laisuat = Convert.ToDouble(txtchlaitren10tr.Text);
                     }
                     else
                     {
-                        var roundTienLai = Math.Round((SoNgay * SoTienCam * 2.5 / 100 / 1000), 3);
-                        dr["TienLai"] = roundTienLai * 1000;
+                        laisuat = Convert.ToDouble(txtchlaiduoi10tr.Text);
                     }
+                    var roundTienLai = Math.Round((SoNgay * SoTienCam * laisuat / 100 / 1000), 3);
+                    dr["TienLai"] = roundTienLai * 1000;
 
                     dsKiemHang.tbKiemHang.Rows.Add(dr);
                 }   
@@ -661,7 +697,8 @@ namespace camdochieuduong
         {
             GridView gridView = gridTimKiem.FocusedView as GridView;
             var selectId = gridView.GetFocusedRowCellValue("IDBienNhan").ToString();
-            myFunction.PrintToPrinterA4(selectId);
+            string a4printer = ConfigurationManager.AppSettings.Get("a4printer");
+            myFunction.PrintToPrinterA4(selectId, a4printer);
 
             //Update Giao Dich Table
             Model.GiaoDich GD = camdochieuduongEntity.GiaoDiches.Find(selectId);
@@ -708,6 +745,31 @@ namespace camdochieuduong
 
         private void txtkhdenngay_ValueChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnSaveConfig_Click(object sender, EventArgs e)
+        {
+            Model.CauHinh CH = camdochieuduongEntity.CauHinhs.Find(Constants.CamDo);
+            if (CH == null)
+            {
+                CH.Type = Constants.CamDo;
+                CH.LaiTren10Tr = Convert.ToInt64(txtchlaitren10tr.Text);
+                CH.LaiDuoi10Tr = Convert.ToInt64(txtchlaiduoi10tr.Text);
+                CH.SoNgayApDung = Convert.ToInt16(txtchsongayapdung.Text);
+                CH.SoNgayToiHan = Convert.ToInt16(txtchsongaytoihan.Text);
+                camdochieuduongEntity.CauHinhs.Add(CH);
+            }else
+            {
+                CH.LaiTren10Tr = Convert.ToDecimal(txtchlaitren10tr.Text);
+                CH.LaiDuoi10Tr = Convert.ToDecimal(txtchlaiduoi10tr.Text);
+                CH.SoNgayApDung = Convert.ToInt16(txtchsongayapdung.Text);
+                CH.SoNgayToiHan = Convert.ToInt16(txtchsongaytoihan.Text);
+            }
+            camdochieuduongEntity.SaveChanges();
+            MessageBox.Show("Lưu Xong");
+
+
 
         }
     }

@@ -14,18 +14,13 @@
         </EntityType>
         <EntityType Name="CauHinh">
           <Key>
-            <PropertyRef Name="ServerIP" />
+            <PropertyRef Name="Type" />
           </Key>
-          <Property Name="ServerIP" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="ServerAccount" Type="nchar" MaxLength="50" />
-          <Property Name="ServerPassword" Type="nchar" MaxLength="50" />
-          <Property Name="SqlName" Type="nchar" MaxLength="50" />
-          <Property Name="MayInA4" Type="nchar" MaxLength="50" />
-          <Property Name="MayInA7" Type="nchar" MaxLength="50" />
-          <Property Name="LaiDuoi10Tr" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="LaiTren10Tr" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="SoNgayApDung" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="SoNgayToiHan" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Type" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="LaiDuoi10Tr" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="LaiTren10Tr" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="SoNgayApDung" Type="numeric" Precision="5" Scale="0" />
+          <Property Name="SoNgayToiHan" Type="numeric" Precision="5" Scale="0" />
         </EntityType>
         <EntityType Name="GiaoDich">
           <Key>
@@ -34,7 +29,7 @@
           <Property Name="IDBienNhan" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NgayCam" Type="datetime" />
           <Property Name="KhachHang" Type="nvarchar" MaxLength="200" />
-          <Property Name="DienThoai" Type="nchar" MaxLength="50" />
+          <Property Name="DienThoai" Type="nchar" MaxLength="12" />
           <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
           <Property Name="GiaTri" Type="numeric" Precision="18" Scale="0" />
           <Property Name="TienCam" Type="numeric" Precision="18" Scale="0" />
@@ -87,21 +82,6 @@
           <Property Name="Username" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
         </EntityType>
-        <EntityType Name="CauHinh">
-          <Key>
-            <PropertyRef Name="ServerIP" />
-          </Key>
-          <Property Name="ServerIP" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="ServerAccount" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="ServerPassword" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="SqlName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="MayInA4" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="MayInA7" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
-          <Property Name="LaiDuoi10Tr" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="LaiTren10Tr" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="SoNgayApDung" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="SoNgayToiHan" Type="Decimal" Precision="18" Scale="0" />
-        </EntityType>
         <EntityType Name="NumberRange">
           <Key>
             <PropertyRef Name="Type" />
@@ -113,10 +93,10 @@
         </EntityType>
         <EntityContainer Name="camdochieuduongEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="Self.Account" />
-          <EntitySet Name="CauHinhs" EntityType="Self.CauHinh" />
           <EntitySet Name="NumberRanges" EntityType="Self.NumberRange" />
           <EntitySet Name="GiaoDiches" EntityType="camdochieuduongModel.GiaoDich" />
           <EntitySet Name="ThuChis" EntityType="camdochieuduongModel.ThuChi" />
+          <EntitySet Name="CauHinhs" EntityType="camdochieuduongModel.CauHinh" />
         </EntityContainer>
         <EntityType Name="GiaoDich">
           <Key>
@@ -125,7 +105,7 @@
           <Property Name="IDBienNhan" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NgayCam" Type="DateTime" Precision="3" />
           <Property Name="KhachHang" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="DienThoai" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
           <Property Name="MoTa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="GiaTri" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="TienCam" Type="Decimal" Precision="18" Scale="0" />
@@ -151,6 +131,16 @@
           <Property Name="Cancel" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
           <Property Name="LoaiGiaoDich" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
         </EntityType>
+        <EntityType Name="CauHinh">
+          <Key>
+            <PropertyRef Name="Type" />
+          </Key>
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="LaiDuoi10Tr" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="LaiTren10Tr" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="SoNgayApDung" Type="Decimal" Precision="5" Scale="0" />
+          <Property Name="SoNgayToiHan" Type="Decimal" Precision="5" Scale="0" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -162,22 +152,6 @@
               <MappingFragment StoreEntitySet="Account">
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CauHinhs">
-            <EntityTypeMapping TypeName="camdochieuduongModel.CauHinh">
-              <MappingFragment StoreEntitySet="CauHinh">
-                <ScalarProperty Name="ServerIP" ColumnName="ServerIP" />
-                <ScalarProperty Name="ServerAccount" ColumnName="ServerAccount" />
-                <ScalarProperty Name="ServerPassword" ColumnName="ServerPassword" />
-                <ScalarProperty Name="SqlName" ColumnName="SqlName" />
-                <ScalarProperty Name="MayInA4" ColumnName="MayInA4" />
-                <ScalarProperty Name="MayInA7" ColumnName="MayInA7" />
-                <ScalarProperty Name="LaiDuoi10Tr" ColumnName="LaiDuoi10Tr" />
-                <ScalarProperty Name="LaiTren10Tr" ColumnName="LaiTren10Tr" />
-                <ScalarProperty Name="SoNgayApDung" ColumnName="SoNgayApDung" />
-                <ScalarProperty Name="SoNgayToiHan" ColumnName="SoNgayToiHan" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -223,6 +197,17 @@
                 <ScalarProperty Name="SoTien" ColumnName="SoTien" />
                 <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
                 <ScalarProperty Name="MaThuChi" ColumnName="MaThuChi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CauHinhs">
+            <EntityTypeMapping TypeName="camdochieuduongModel.CauHinh">
+              <MappingFragment StoreEntitySet="CauHinh">
+                <ScalarProperty Name="SoNgayToiHan" ColumnName="SoNgayToiHan" />
+                <ScalarProperty Name="SoNgayApDung" ColumnName="SoNgayApDung" />
+                <ScalarProperty Name="LaiTren10Tr" ColumnName="LaiTren10Tr" />
+                <ScalarProperty Name="LaiDuoi10Tr" ColumnName="LaiDuoi10Tr" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

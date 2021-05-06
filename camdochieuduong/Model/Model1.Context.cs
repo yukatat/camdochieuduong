@@ -9,28 +9,26 @@
 
 namespace camdochieuduong.Model
 {
-    using Function;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class camdochieuduongEntities : DbContext
     {
-        public camdochieuduongEntities() : base(SingleConnection.ConString)
+        public camdochieuduongEntities()
+            : base("name=camdochieuduongEntities")
         {
-
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
     
         public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<CauHinh> CauHinhs { get; set; }
         public virtual DbSet<NumberRange> NumberRanges { get; set; }
         public virtual DbSet<GiaoDich> GiaoDiches { get; set; }
         public virtual DbSet<ThuChi> ThuChis { get; set; }
-
+        public virtual DbSet<CauHinh> CauHinhs { get; set; }
     }
 }

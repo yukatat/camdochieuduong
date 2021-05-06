@@ -14,12 +14,7 @@ namespace camdochieuduong.Model
     
     public partial class CauHinh
     {
-        public string ServerIP { get; set; }
-        public string ServerAccount { get; set; }
-        public string ServerPassword { get; set; }
-        public string SqlName { get; set; }
-        public string MayInA4 { get; set; }
-        public string MayInA7 { get; set; }
+        public string Type { get; set; }
         public Nullable<decimal> LaiDuoi10Tr { get; set; }
         public Nullable<decimal> LaiTren10Tr { get; set; }
         public Nullable<decimal> SoNgayApDung { get; set; }

@@ -17,6 +17,8 @@ namespace camdochieuduong.Function
         public const string BaoMat = "Báo Mất Giấy";
         public const string Thu = "Thu";
         public const string Chi = "Chi";
+        public const string Server = "Server";
+        public const string Client = "Client";
 
     }
     public class myFunction
@@ -33,7 +35,7 @@ namespace camdochieuduong.Function
             {
                 e.Handled = true;
             }
-        }
+           }
     public static void CreateGiaoDich(string I_IDBienNhan,
                                    string I_NgayCam,
                                    string I_KhachHang,
@@ -89,12 +91,13 @@ namespace camdochieuduong.Function
             var IDBienNhan = nr.ID + '-' + currMonth + currYear2;
             return IDBienNhan;
         }
-        public static void PrintToPrinterA4(string IDBienNhan)
+        public static void PrintToPrinterA4(string IDBienNhan, string PrinterName)
         {
             //PrintReport(System.Windows.Forms.Application.StartupPath + "\\CrystalReport1.rpt", "Send To OneNote 2010");
             //PrintReport(System.Windows.Forms.Application.StartupPath + "\\CrystalReport1.rpt", "Microsoft Print to PDF");
             var rptPath = "C:\\Users\\ManhTran\\Documents\\Visual Studio 2015\\Projects\\camdochieuduong\\camdochieuduong\\CrystalReport\\rptLapBienNhan.rpt";
-            PrintReport(IDBienNhan, rptPath, "Microsoft Print to PDF");
+            //PrintReport(IDBienNhan, rptPath, "Microsoft Print to PDF");
+            PrintReport(IDBienNhan, rptPath, PrinterName);
         }
         public static void PrintReport(string IDBienNhan, string reportPath, string PrinterName)
         {
@@ -126,7 +129,7 @@ namespace camdochieuduong.Function
             rptDoc.SetParameterValue("P_TienCamChu", TienCamChu);
             rptDoc.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
             rptDoc.PrintOptions.PaperSize = CrystalDecisions.Shared.PaperSize.PaperA5;
-            rptDoc.PrintOptions.PrinterName = PrinterName;
+            rptDoc.PrintOptions.PrinterName = PrinterName.Trim();
             rptDoc.PrintToPrinter(1, false, 1, 1);
         }
         public static void PrintToPrinterA8(string IDBienNhan,string CamThem, string ThayGiayCho)

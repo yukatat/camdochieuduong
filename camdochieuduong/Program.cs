@@ -1,4 +1,7 @@
-﻿using System;
+﻿using System.Configuration;
+using System.Collections.Specialized;
+using camdochieuduong.Function;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +17,7 @@ namespace camdochieuduong
         [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new fMainCD());

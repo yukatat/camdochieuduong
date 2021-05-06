@@ -1,4 +1,5 @@
-﻿namespace camdochieuduong
+﻿
+namespace camdochieuduong
 {
     partial class fMainCD
     {
@@ -277,21 +278,6 @@
             this.panel25 = new System.Windows.Forms.Panel();
             this.txtchlaitren10tr = new DevExpress.XtraEditors.TextEdit();
             this.label25 = new System.Windows.Forms.Label();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.txtchsqlname = new DevExpress.XtraEditors.TextEdit();
-            this.label21 = new System.Windows.Forms.Label();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.txtchaccserver = new DevExpress.XtraEditors.TextEdit();
-            this.label19 = new System.Windows.Forms.Label();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.txtchpassserver = new DevExpress.XtraEditors.TextEdit();
-            this.label20 = new System.Windows.Forms.Label();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.txtcha4printer = new DevExpress.XtraEditors.TextEdit();
-            this.label22 = new System.Windows.Forms.Label();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.txtchipserver = new DevExpress.XtraEditors.TextEdit();
-            this.label18 = new System.Windows.Forms.Label();
             this.tbTimKiemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbGiaoDichBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsThuChiBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -423,16 +409,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtchlaiduoi10tr.Properties)).BeginInit();
             this.panel25.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtchlaitren10tr.Properties)).BeginInit();
-            this.panel20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtchsqlname.Properties)).BeginInit();
-            this.panel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtchaccserver.Properties)).BeginInit();
-            this.panel19.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtchpassserver.Properties)).BeginInit();
-            this.panel21.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtcha4printer.Properties)).BeginInit();
-            this.panel17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtchipserver.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTimKiemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbGiaoDichBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsThuChiBindingSource)).BeginInit();
@@ -591,6 +567,8 @@
             // 
             // colTienCam
             // 
+            this.colTienCam.DisplayFormat.FormatString = "N0";
+            this.colTienCam.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTienCam.FieldName = "TienCam";
             this.colTienCam.Name = "colTienCam";
             this.colTienCam.Visible = true;
@@ -599,6 +577,8 @@
             // 
             // colGiaTri
             // 
+            this.colGiaTri.DisplayFormat.FormatString = "N0";
+            this.colGiaTri.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colGiaTri.FieldName = "GiaTri";
             this.colGiaTri.Name = "colGiaTri";
             this.colGiaTri.Visible = true;
@@ -924,6 +904,8 @@
             // 
             // colTienCam2
             // 
+            this.colTienCam2.DisplayFormat.FormatString = "N0";
+            this.colTienCam2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTienCam2.FieldName = "TienCam";
             this.colTienCam2.Name = "colTienCam2";
             this.colTienCam2.Visible = true;
@@ -932,6 +914,8 @@
             // 
             // colTienLai2
             // 
+            this.colTienLai2.DisplayFormat.FormatString = "N0";
+            this.colTienLai2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTienLai2.FieldName = "TienLai";
             this.colTienLai2.Name = "colTienLai2";
             this.colTienLai2.Visible = true;
@@ -1216,6 +1200,8 @@
             // colGiaTri1
             // 
             this.colGiaTri1.Caption = "Trị Giá Món Hàng";
+            this.colGiaTri1.DisplayFormat.FormatString = "N0";
+            this.colGiaTri1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colGiaTri1.FieldName = "GiaTri";
             this.colGiaTri1.Name = "colGiaTri1";
             this.colGiaTri1.Visible = true;
@@ -1571,6 +1557,8 @@
             // 
             // colTienCam3
             // 
+            this.colTienCam3.DisplayFormat.FormatString = "N0";
+            this.colTienCam3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTienCam3.FieldName = "TienCam";
             this.colTienCam3.Name = "colTienCam3";
             this.colTienCam3.Visible = true;
@@ -1579,6 +1567,8 @@
             // 
             // colTienLai1
             // 
+            this.colTienLai1.DisplayFormat.FormatString = "N0";
+            this.colTienLai1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTienLai1.FieldName = "TienLai";
             this.colTienLai1.Name = "colTienLai1";
             this.colTienLai1.Visible = true;
@@ -1611,6 +1601,8 @@
             // 
             // colThanhToan
             // 
+            this.colThanhToan.DisplayFormat.FormatString = "N0";
+            this.colThanhToan.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colThanhToan.FieldName = "ThanhToan";
             this.colThanhToan.Name = "colThanhToan";
             this.colThanhToan.Visible = true;
@@ -1816,6 +1808,8 @@
             // 
             // colTienCam4
             // 
+            this.colTienCam4.DisplayFormat.FormatString = "N0";
+            this.colTienCam4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTienCam4.FieldName = "TienCam";
             this.colTienCam4.Name = "colTienCam4";
             this.colTienCam4.Visible = true;
@@ -1824,6 +1818,8 @@
             // 
             // colTienLai3
             // 
+            this.colTienLai3.DisplayFormat.FormatString = "N0";
+            this.colTienLai3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTienLai3.FieldName = "TienLai";
             this.colTienLai3.Name = "colTienLai3";
             this.colTienLai3.Visible = true;
@@ -1832,6 +1828,8 @@
             // 
             // colThanhToan1
             // 
+            this.colThanhToan1.DisplayFormat.FormatString = "N0";
+            this.colThanhToan1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colThanhToan1.FieldName = "ThanhToan";
             this.colThanhToan1.Name = "colThanhToan1";
             this.colThanhToan1.Visible = true;
@@ -2355,6 +2353,8 @@
             // 
             // colTienCam5
             // 
+            this.colTienCam5.DisplayFormat.FormatString = "N0";
+            this.colTienCam5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTienCam5.FieldName = "TienCam";
             this.colTienCam5.Name = "colTienCam5";
             this.colTienCam5.Visible = true;
@@ -2363,6 +2363,8 @@
             // 
             // colTienLai4
             // 
+            this.colTienLai4.DisplayFormat.FormatString = "N0";
+            this.colTienLai4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTienLai4.FieldName = "TienLai";
             this.colTienLai4.Name = "colTienLai4";
             this.colTienLai4.Visible = true;
@@ -2680,6 +2682,8 @@
             // 
             // colSoTien
             // 
+            this.colSoTien.DisplayFormat.FormatString = "N0";
+            this.colSoTien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colSoTien.FieldName = "SoTien";
             this.colSoTien.Name = "colSoTien";
             this.colSoTien.Visible = true;
@@ -2793,11 +2797,6 @@
             this.groupControl14.Controls.Add(this.panel26);
             this.groupControl14.Controls.Add(this.panel23);
             this.groupControl14.Controls.Add(this.panel25);
-            this.groupControl14.Controls.Add(this.panel20);
-            this.groupControl14.Controls.Add(this.panel18);
-            this.groupControl14.Controls.Add(this.panel19);
-            this.groupControl14.Controls.Add(this.panel21);
-            this.groupControl14.Controls.Add(this.panel17);
             this.groupControl14.Location = new System.Drawing.Point(4, 4);
             this.groupControl14.Name = "groupControl14";
             this.groupControl14.Size = new System.Drawing.Size(1532, 786);
@@ -2809,17 +2808,18 @@
             this.btnSaveConfig.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveConfig.Appearance.Options.UseFont = true;
             this.btnSaveConfig.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveConfig.ImageOptions.Image")));
-            this.btnSaveConfig.Location = new System.Drawing.Point(115, 532);
+            this.btnSaveConfig.Location = new System.Drawing.Point(110, 264);
             this.btnSaveConfig.Name = "btnSaveConfig";
             this.btnSaveConfig.Size = new System.Drawing.Size(105, 33);
             this.btnSaveConfig.TabIndex = 3;
             this.btnSaveConfig.Text = "Lưu";
+            this.btnSaveConfig.Click += new System.EventHandler(this.btnSaveConfig_Click);
             // 
             // panel27
             // 
             this.panel27.Controls.Add(this.txtchsongaytoihan);
             this.panel27.Controls.Add(this.label27);
-            this.panel27.Location = new System.Drawing.Point(12, 454);
+            this.panel27.Location = new System.Drawing.Point(5, 185);
             this.panel27.Name = "panel27";
             this.panel27.Size = new System.Drawing.Size(346, 48);
             this.panel27.TabIndex = 2;
@@ -2847,7 +2847,7 @@
             // 
             this.panel26.Controls.Add(this.txtchsongayapdung);
             this.panel26.Controls.Add(this.label26);
-            this.panel26.Location = new System.Drawing.Point(12, 400);
+            this.panel26.Location = new System.Drawing.Point(5, 131);
             this.panel26.Name = "panel26";
             this.panel26.Size = new System.Drawing.Size(346, 48);
             this.panel26.TabIndex = 2;
@@ -2875,7 +2875,7 @@
             // 
             this.panel23.Controls.Add(this.txtchlaiduoi10tr);
             this.panel23.Controls.Add(this.label23);
-            this.panel23.Location = new System.Drawing.Point(12, 346);
+            this.panel23.Location = new System.Drawing.Point(5, 77);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(346, 48);
             this.panel23.TabIndex = 2;
@@ -2895,15 +2895,15 @@
             this.label23.Font = new System.Drawing.Font("Tahoma", 12F);
             this.label23.Location = new System.Drawing.Point(3, 11);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(107, 19);
+            this.label23.Size = new System.Drawing.Size(135, 19);
             this.label23.TabIndex = 0;
-            this.label23.Text = "Lãi Dưới 10Tr";
+            this.label23.Text = "Lãi Dưới 10Tr(%)";
             // 
             // panel25
             // 
             this.panel25.Controls.Add(this.txtchlaitren10tr);
             this.panel25.Controls.Add(this.label25);
-            this.panel25.Location = new System.Drawing.Point(12, 292);
+            this.panel25.Location = new System.Drawing.Point(5, 23);
             this.panel25.Name = "panel25";
             this.panel25.Size = new System.Drawing.Size(346, 48);
             this.panel25.TabIndex = 2;
@@ -2923,149 +2923,9 @@
             this.label25.Font = new System.Drawing.Font("Tahoma", 12F);
             this.label25.Location = new System.Drawing.Point(3, 11);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(106, 19);
+            this.label25.Size = new System.Drawing.Size(134, 19);
             this.label25.TabIndex = 0;
-            this.label25.Text = "Lãi Trên 10Tr";
-            // 
-            // panel20
-            // 
-            this.panel20.Controls.Add(this.txtchsqlname);
-            this.panel20.Controls.Add(this.label21);
-            this.panel20.Location = new System.Drawing.Point(12, 184);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(346, 48);
-            this.panel20.TabIndex = 2;
-            // 
-            // txtchsqlname
-            // 
-            this.txtchsqlname.Location = new System.Drawing.Point(138, 8);
-            this.txtchsqlname.Name = "txtchsqlname";
-            this.txtchsqlname.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtchsqlname.Properties.Appearance.Options.UseFont = true;
-            this.txtchsqlname.Size = new System.Drawing.Size(205, 26);
-            this.txtchsqlname.TabIndex = 1;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label21.Location = new System.Drawing.Point(3, 11);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(84, 19);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "SQL Name";
-            // 
-            // panel18
-            // 
-            this.panel18.Controls.Add(this.txtchaccserver);
-            this.panel18.Controls.Add(this.label19);
-            this.panel18.Location = new System.Drawing.Point(12, 80);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(346, 48);
-            this.panel18.TabIndex = 2;
-            // 
-            // txtchaccserver
-            // 
-            this.txtchaccserver.Location = new System.Drawing.Point(138, 8);
-            this.txtchaccserver.Name = "txtchaccserver";
-            this.txtchaccserver.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtchaccserver.Properties.Appearance.Options.UseFont = true;
-            this.txtchaccserver.Size = new System.Drawing.Size(205, 26);
-            this.txtchaccserver.TabIndex = 1;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label19.Location = new System.Drawing.Point(3, 11);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(116, 19);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Account Server";
-            // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.txtchpassserver);
-            this.panel19.Controls.Add(this.label20);
-            this.panel19.Location = new System.Drawing.Point(12, 130);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(346, 48);
-            this.panel19.TabIndex = 2;
-            // 
-            // txtchpassserver
-            // 
-            this.txtchpassserver.Location = new System.Drawing.Point(138, 8);
-            this.txtchpassserver.Name = "txtchpassserver";
-            this.txtchpassserver.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtchpassserver.Properties.Appearance.Options.UseFont = true;
-            this.txtchpassserver.Size = new System.Drawing.Size(205, 26);
-            this.txtchpassserver.TabIndex = 1;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label20.Location = new System.Drawing.Point(3, 11);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(126, 19);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Password Server";
-            // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.txtcha4printer);
-            this.panel21.Controls.Add(this.label22);
-            this.panel21.Location = new System.Drawing.Point(12, 238);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(346, 48);
-            this.panel21.TabIndex = 2;
-            // 
-            // txtcha4printer
-            // 
-            this.txtcha4printer.Location = new System.Drawing.Point(138, 8);
-            this.txtcha4printer.Name = "txtcha4printer";
-            this.txtcha4printer.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtcha4printer.Properties.Appearance.Options.UseFont = true;
-            this.txtcha4printer.Size = new System.Drawing.Size(205, 26);
-            this.txtcha4printer.TabIndex = 1;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label22.Location = new System.Drawing.Point(3, 11);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(82, 19);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "Máy In A4";
-            // 
-            // panel17
-            // 
-            this.panel17.Controls.Add(this.txtchipserver);
-            this.panel17.Controls.Add(this.label18);
-            this.panel17.Location = new System.Drawing.Point(12, 26);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(346, 48);
-            this.panel17.TabIndex = 2;
-            // 
-            // txtchipserver
-            // 
-            this.txtchipserver.Location = new System.Drawing.Point(138, 8);
-            this.txtchipserver.Name = "txtchipserver";
-            this.txtchipserver.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtchipserver.Properties.Appearance.Options.UseFont = true;
-            this.txtchipserver.Size = new System.Drawing.Size(205, 26);
-            this.txtchipserver.TabIndex = 1;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label18.Location = new System.Drawing.Point(3, 11);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(74, 19);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "IP Server";
+            this.label25.Text = "Lãi Trên 10Tr(%)";
             // 
             // tbGiaoDichBindingSource
             // 
@@ -3244,21 +3104,6 @@
             this.panel25.ResumeLayout(false);
             this.panel25.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtchlaitren10tr.Properties)).EndInit();
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtchsqlname.Properties)).EndInit();
-            this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtchaccserver.Properties)).EndInit();
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtchpassserver.Properties)).EndInit();
-            this.panel21.ResumeLayout(false);
-            this.panel21.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtcha4printer.Properties)).EndInit();
-            this.panel17.ResumeLayout(false);
-            this.panel17.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtchipserver.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTimKiemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbGiaoDichBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsThuChiBindingSource)).EndInit();
@@ -3455,27 +3300,12 @@
         private System.Windows.Forms.Panel panel25;
         private DevExpress.XtraEditors.TextEdit txtchlaitren10tr;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Panel panel20;
-        private DevExpress.XtraEditors.TextEdit txtchsqlname;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Panel panel18;
-        private DevExpress.XtraEditors.TextEdit txtchaccserver;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel26;
         private DevExpress.XtraEditors.TextEdit txtchsongayapdung;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Panel panel23;
         private DevExpress.XtraEditors.TextEdit txtchlaiduoi10tr;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Panel panel19;
-        private DevExpress.XtraEditors.TextEdit txtchpassserver;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Panel panel21;
-        private DevExpress.XtraEditors.TextEdit txtcha4printer;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Panel panel17;
-        private DevExpress.XtraEditors.TextEdit txtchipserver;
-        private System.Windows.Forms.Label label18;
         private DevExpress.XtraEditors.GroupControl groupControl15;
         private DevExpress.XtraEditors.SimpleButton btntcSearch;
         private System.Windows.Forms.DateTimePicker txttcdenngay;
