@@ -285,6 +285,8 @@ namespace camdochieuduong.Model {
             
             private global::System.Data.DataColumn columnLoaiGiaoDich;
             
+            private global::System.Data.DataColumn columnTonKho;
+            
             private global::System.Data.DataColumn columnKhachHang;
             
             private global::System.Data.DataColumn columnDienThoai;
@@ -351,6 +353,14 @@ namespace camdochieuduong.Model {
             public global::System.Data.DataColumn LoaiGiaoDichColumn {
                 get {
                     return this.columnLoaiGiaoDich;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TonKhoColumn {
+                get {
+                    return this.columnTonKho;
                 }
             }
             
@@ -439,12 +449,13 @@ namespace camdochieuduong.Model {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tbTimKiemRow AddtbTimKiemRow(string IDBienNhan, System.DateTime NgayCam, string LoaiGiaoDich, string KhachHang, string DienThoai, string MoTa, long TienCam, long TienLai, long ThanhToan) {
+            public tbTimKiemRow AddtbTimKiemRow(string IDBienNhan, System.DateTime NgayCam, string LoaiGiaoDich, string TonKho, string KhachHang, string DienThoai, string MoTa, long TienCam, long TienLai, long ThanhToan) {
                 tbTimKiemRow rowtbTimKiemRow = ((tbTimKiemRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IDBienNhan,
                         NgayCam,
                         LoaiGiaoDich,
+                        TonKho,
                         KhachHang,
                         DienThoai,
                         MoTa,
@@ -476,6 +487,7 @@ namespace camdochieuduong.Model {
                 this.columnIDBienNhan = base.Columns["IDBienNhan"];
                 this.columnNgayCam = base.Columns["NgayCam"];
                 this.columnLoaiGiaoDich = base.Columns["LoaiGiaoDich"];
+                this.columnTonKho = base.Columns["TonKho"];
                 this.columnKhachHang = base.Columns["KhachHang"];
                 this.columnDienThoai = base.Columns["DienThoai"];
                 this.columnMoTa = base.Columns["MoTa"];
@@ -493,6 +505,8 @@ namespace camdochieuduong.Model {
                 base.Columns.Add(this.columnNgayCam);
                 this.columnLoaiGiaoDich = new global::System.Data.DataColumn("LoaiGiaoDich", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLoaiGiaoDich);
+                this.columnTonKho = new global::System.Data.DataColumn("TonKho", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTonKho);
                 this.columnKhachHang = new global::System.Data.DataColumn("KhachHang", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKhachHang);
                 this.columnDienThoai = new global::System.Data.DataColumn("DienThoai", typeof(string), null, global::System.Data.MappingType.Element);
@@ -508,6 +522,7 @@ namespace camdochieuduong.Model {
                 this.columnIDBienNhan.Caption = "Mã Đơn Hàng";
                 this.columnNgayCam.Caption = "Ngày";
                 this.columnLoaiGiaoDich.Caption = "Loại Giao Dịch";
+                this.columnTonKho.Caption = "Tồn Kho";
                 this.columnKhachHang.Caption = "Khách Hàng";
                 this.columnDienThoai.Caption = "Điện Thoại";
                 this.columnMoTa.Caption = "Mô Tả";
@@ -704,6 +719,22 @@ namespace camdochieuduong.Model {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TonKho {
+                get {
+                    try {
+                        return ((string)(this[this.tabletbTimKiem.TonKhoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TonKho\' in table \'tbTimKiem\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbTimKiem.TonKhoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string KhachHang {
                 get {
                     try {
@@ -832,6 +863,18 @@ namespace camdochieuduong.Model {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetLoaiGiaoDichNull() {
                 this[this.tabletbTimKiem.LoaiGiaoDichColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTonKhoNull() {
+                return this.IsNull(this.tabletbTimKiem.TonKhoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTonKhoNull() {
+                this[this.tabletbTimKiem.TonKhoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

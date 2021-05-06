@@ -122,6 +122,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsThuChi.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Model\dsTimKiem.cs">
+      <DependentUpon>dsTimKiem.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\dsTimKiem.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

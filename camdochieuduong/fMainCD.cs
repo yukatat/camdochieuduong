@@ -304,27 +304,7 @@ namespace camdochieuduong
                     dr["MoTa"] = GD.MoTa;
                     dr["TienLai"] = GD.TienLai;
                     dr["TienCam"] = GD.TienCam;
-                    if (GD.DaChuoc != null)
-                    {
-                        dr["LoaiGiaoDich"] = "Chuộc Đồ";
-                        btntgChuoc.Enabled = false;
-                        btntgThayGiay.Enabled = false;
-                    }
-                    else if (GD.BaoMat != null)
-                    {
-                        dr["LoaiGiaoDich"] = "Báo Mất";
-                        btntgChuoc.Enabled = false;
-                        btntgThayGiay.Enabled = false;
-                    }
-                    else if (GD.IDBienNhan == GD.DonGoc)
-                    {
-                        dr["LoaiGiaoDich"] = "Cầm Đồ";
-                    }
-                    else if (GD.ThayTheCho != "")
-                    {
-                        dr["LoaiGiaoDich"] = "Thay Giấy";
-
-                    }
+                    dr["LoaiGiaoDich"] = GD.LoaiGiaoDich;
                     dr["ThayTheCho"] = GD.ThayTheCho;
                     gridtgHistory1.History.Rows.Add(dr);
                     gridtgHistory.DataSource = gridtgHistory1.History;
@@ -346,14 +326,14 @@ namespace camdochieuduong
                 Model.GiaoDich GD = camdochieuduongEntity.GiaoDiches.Find(gridView2.GetRowCellValue(i, "IDBienNhan").ToString());
                 if (GD.DaChuoc == null)
                 {
-                    //Update Giao Dich cu
+                    //Update Giao Dich Chuoc Do dang lam
                     GD.DaChuoc = "X";
                     GD.LoaiGiaoDich = Constants.ChuocDo;
                     GD.TienLai = Convert.ToInt64(gridView2.GetRowCellValue(i, "TienLai").ToString());
                     camdochieuduongEntity.SaveChanges();
-                    Model.GiaoDich GD1 = camdochieuduongEntity.GiaoDiches.Find(gridView2.GetRowCellValue(i, "DonGoc").ToString());
-                    GD1.DaChuoc = "X";
-                    camdochieuduongEntity.SaveChanges();
+
+                    //Update cac don cu cua don nay
+                    UpdateChuocHistory(gridView2.GetRowCellValue(i, "DonGoc").ToString());
                 }
                 else
                 {
@@ -362,6 +342,16 @@ namespace camdochieuduong
 
             }
             setInit();
+        }
+        private void UpdateChuocHistory(string DonGoc)
+        {
+            var listGiaoDich = camdochieuduongEntity.GiaoDiches.Where(x => x.DonGoc == DonGoc).ToList();
+            foreach (Model.GiaoDich GD in listGiaoDich)
+            {
+               GD.DaChuoc = "X";
+               camdochieuduongEntity.SaveChanges();
+
+            }
         }
 
         private void btnBaoMat_Click(object sender, EventArgs e)
@@ -517,7 +507,13 @@ namespace camdochieuduong
                 dr["TienCam"] = GD.TienCam;
                 dr["MoTa"] = GD.MoTa;
                 dr["DienThoai"] = GD.DienThoai;
-
+                if (GD.DaChuoc != "X")
+                {
+                    dr["TonKho"] = "Còn Hàng";
+                }else
+                {
+                    dr["TonKho"] = "Đã Chuộc";
+                }
                 //summary
                 if (GD.LoaiGiaoDich == Constants.CamDo)
                 {

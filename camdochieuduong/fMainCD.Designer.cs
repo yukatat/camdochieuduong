@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMainCD));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.xtraTabControl = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
@@ -168,6 +168,7 @@
             this.colTienCam4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTienLai3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colThanhToan1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTonKho = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl11 = new DevExpress.XtraEditors.GroupControl();
             this.btntk1Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.btntk1Print = new DevExpress.XtraEditors.SimpleButton();
@@ -267,18 +268,18 @@
             this.panel27 = new System.Windows.Forms.Panel();
             this.txtchsongaytoihan = new DevExpress.XtraEditors.TextEdit();
             this.label27 = new System.Windows.Forms.Label();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.txtchlaitren10tr = new DevExpress.XtraEditors.TextEdit();
-            this.label25 = new System.Windows.Forms.Label();
             this.panel26 = new System.Windows.Forms.Panel();
             this.txtchsongayapdung = new DevExpress.XtraEditors.TextEdit();
             this.label26 = new System.Windows.Forms.Label();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.txtchsqlname = new DevExpress.XtraEditors.TextEdit();
-            this.label21 = new System.Windows.Forms.Label();
             this.panel23 = new System.Windows.Forms.Panel();
             this.txtchlaiduoi10tr = new DevExpress.XtraEditors.TextEdit();
             this.label23 = new System.Windows.Forms.Label();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.txtchlaitren10tr = new DevExpress.XtraEditors.TextEdit();
+            this.label25 = new System.Windows.Forms.Label();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.txtchsqlname = new DevExpress.XtraEditors.TextEdit();
+            this.label21 = new System.Windows.Forms.Label();
             this.panel18 = new System.Windows.Forms.Panel();
             this.txtchaccserver = new DevExpress.XtraEditors.TextEdit();
             this.label19 = new System.Windows.Forms.Label();
@@ -416,14 +417,14 @@
             this.groupControl14.SuspendLayout();
             this.panel27.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtchsongaytoihan.Properties)).BeginInit();
-            this.panel25.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtchlaitren10tr.Properties)).BeginInit();
             this.panel26.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtchsongayapdung.Properties)).BeginInit();
-            this.panel20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtchsqlname.Properties)).BeginInit();
             this.panel23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtchlaiduoi10tr.Properties)).BeginInit();
+            this.panel25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtchlaitren10tr.Properties)).BeginInit();
+            this.panel20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtchsqlname.Properties)).BeginInit();
             this.panel18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtchaccserver.Properties)).BeginInit();
             this.panel19.SuspendLayout();
@@ -1752,9 +1753,11 @@
             this.colMoTa4,
             this.colTienCam4,
             this.colTienLai3,
-            this.colThanhToan1});
+            this.colThanhToan1,
+            this.colTonKho});
             this.gridView5.GridControl = this.gridTimKiem;
             this.gridView5.Name = "gridView5";
+            this.gridView5.OptionsBehavior.Editable = false;
             this.gridView5.OptionsView.RowAutoHeight = true;
             // 
             // colIDBienNhan4
@@ -1763,7 +1766,7 @@
             this.colIDBienNhan4.Name = "colIDBienNhan4";
             this.colIDBienNhan4.Visible = true;
             this.colIDBienNhan4.VisibleIndex = 0;
-            this.colIDBienNhan4.Width = 110;
+            this.colIDBienNhan4.Width = 104;
             // 
             // colNgayCam4
             // 
@@ -1771,7 +1774,7 @@
             this.colNgayCam4.Name = "colNgayCam4";
             this.colNgayCam4.Visible = true;
             this.colNgayCam4.VisibleIndex = 1;
-            this.colNgayCam4.Width = 115;
+            this.colNgayCam4.Width = 97;
             // 
             // colLoaiGiaoDich2
             // 
@@ -1779,23 +1782,23 @@
             this.colLoaiGiaoDich2.Name = "colLoaiGiaoDich2";
             this.colLoaiGiaoDich2.Visible = true;
             this.colLoaiGiaoDich2.VisibleIndex = 2;
-            this.colLoaiGiaoDich2.Width = 111;
+            this.colLoaiGiaoDich2.Width = 110;
             // 
             // colKhachHang4
             // 
             this.colKhachHang4.FieldName = "KhachHang";
             this.colKhachHang4.Name = "colKhachHang4";
             this.colKhachHang4.Visible = true;
-            this.colKhachHang4.VisibleIndex = 3;
-            this.colKhachHang4.Width = 149;
+            this.colKhachHang4.VisibleIndex = 4;
+            this.colKhachHang4.Width = 138;
             // 
             // colDienThoai3
             // 
             this.colDienThoai3.FieldName = "DienThoai";
             this.colDienThoai3.Name = "colDienThoai3";
             this.colDienThoai3.Visible = true;
-            this.colDienThoai3.VisibleIndex = 4;
-            this.colDienThoai3.Width = 138;
+            this.colDienThoai3.VisibleIndex = 5;
+            this.colDienThoai3.Width = 128;
             // 
             // colMoTa4
             // 
@@ -1803,8 +1806,8 @@
             this.colMoTa4.FieldName = "MoTa";
             this.colMoTa4.Name = "colMoTa4";
             this.colMoTa4.Visible = true;
-            this.colMoTa4.VisibleIndex = 5;
-            this.colMoTa4.Width = 409;
+            this.colMoTa4.VisibleIndex = 6;
+            this.colMoTa4.Width = 384;
             // 
             // repositoryItemMemoEdit2
             // 
@@ -1816,24 +1819,32 @@
             this.colTienCam4.FieldName = "TienCam";
             this.colTienCam4.Name = "colTienCam4";
             this.colTienCam4.Visible = true;
-            this.colTienCam4.VisibleIndex = 6;
-            this.colTienCam4.Width = 168;
+            this.colTienCam4.VisibleIndex = 7;
+            this.colTienCam4.Width = 158;
             // 
             // colTienLai3
             // 
             this.colTienLai3.FieldName = "TienLai";
             this.colTienLai3.Name = "colTienLai3";
             this.colTienLai3.Visible = true;
-            this.colTienLai3.VisibleIndex = 7;
-            this.colTienLai3.Width = 151;
+            this.colTienLai3.VisibleIndex = 8;
+            this.colTienLai3.Width = 140;
             // 
             // colThanhToan1
             // 
             this.colThanhToan1.FieldName = "ThanhToan";
             this.colThanhToan1.Name = "colThanhToan1";
             this.colThanhToan1.Visible = true;
-            this.colThanhToan1.VisibleIndex = 8;
-            this.colThanhToan1.Width = 153;
+            this.colThanhToan1.VisibleIndex = 9;
+            this.colThanhToan1.Width = 163;
+            // 
+            // colTonKho
+            // 
+            this.colTonKho.FieldName = "TonKho";
+            this.colTonKho.Name = "colTonKho";
+            this.colTonKho.Visible = true;
+            this.colTonKho.VisibleIndex = 3;
+            this.colTonKho.Width = 82;
             // 
             // groupControl11
             // 
@@ -2227,9 +2238,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridKiemHang.DataSource = this.tbKiemHangBindingSource;
             this.gridKiemHang.Font = new System.Drawing.Font("Tahoma", 12F);
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.gridKiemHang.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gridKiemHang.Location = new System.Drawing.Point(6, 23);
             this.gridKiemHang.MainView = this.gridView6;
             this.gridKiemHang.Name = "gridKiemHang";
@@ -2832,34 +2843,6 @@
             this.label27.TabIndex = 0;
             this.label27.Text = "Số Ngày Tới Hạn";
             // 
-            // panel25
-            // 
-            this.panel25.Controls.Add(this.txtchlaitren10tr);
-            this.panel25.Controls.Add(this.label25);
-            this.panel25.Location = new System.Drawing.Point(12, 292);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(346, 48);
-            this.panel25.TabIndex = 2;
-            // 
-            // txtchlaitren10tr
-            // 
-            this.txtchlaitren10tr.Location = new System.Drawing.Point(138, 8);
-            this.txtchlaitren10tr.Name = "txtchlaitren10tr";
-            this.txtchlaitren10tr.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtchlaitren10tr.Properties.Appearance.Options.UseFont = true;
-            this.txtchlaitren10tr.Size = new System.Drawing.Size(205, 26);
-            this.txtchlaitren10tr.TabIndex = 1;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label25.Location = new System.Drawing.Point(3, 11);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(106, 19);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "Lãi Trên 10Tr";
-            // 
             // panel26
             // 
             this.panel26.Controls.Add(this.txtchsongayapdung);
@@ -2888,34 +2871,6 @@
             this.label26.TabIndex = 0;
             this.label26.Text = "Số Ngày Áp Dụng";
             // 
-            // panel20
-            // 
-            this.panel20.Controls.Add(this.txtchsqlname);
-            this.panel20.Controls.Add(this.label21);
-            this.panel20.Location = new System.Drawing.Point(12, 184);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(346, 48);
-            this.panel20.TabIndex = 2;
-            // 
-            // txtchsqlname
-            // 
-            this.txtchsqlname.Location = new System.Drawing.Point(138, 8);
-            this.txtchsqlname.Name = "txtchsqlname";
-            this.txtchsqlname.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtchsqlname.Properties.Appearance.Options.UseFont = true;
-            this.txtchsqlname.Size = new System.Drawing.Size(205, 26);
-            this.txtchsqlname.TabIndex = 1;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label21.Location = new System.Drawing.Point(3, 11);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(84, 19);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "SQL Name";
-            // 
             // panel23
             // 
             this.panel23.Controls.Add(this.txtchlaiduoi10tr);
@@ -2943,6 +2898,62 @@
             this.label23.Size = new System.Drawing.Size(107, 19);
             this.label23.TabIndex = 0;
             this.label23.Text = "Lãi Dưới 10Tr";
+            // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.txtchlaitren10tr);
+            this.panel25.Controls.Add(this.label25);
+            this.panel25.Location = new System.Drawing.Point(12, 292);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(346, 48);
+            this.panel25.TabIndex = 2;
+            // 
+            // txtchlaitren10tr
+            // 
+            this.txtchlaitren10tr.Location = new System.Drawing.Point(138, 8);
+            this.txtchlaitren10tr.Name = "txtchlaitren10tr";
+            this.txtchlaitren10tr.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtchlaitren10tr.Properties.Appearance.Options.UseFont = true;
+            this.txtchlaitren10tr.Size = new System.Drawing.Size(205, 26);
+            this.txtchlaitren10tr.TabIndex = 1;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label25.Location = new System.Drawing.Point(3, 11);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(106, 19);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "Lãi Trên 10Tr";
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.txtchsqlname);
+            this.panel20.Controls.Add(this.label21);
+            this.panel20.Location = new System.Drawing.Point(12, 184);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(346, 48);
+            this.panel20.TabIndex = 2;
+            // 
+            // txtchsqlname
+            // 
+            this.txtchsqlname.Location = new System.Drawing.Point(138, 8);
+            this.txtchsqlname.Name = "txtchsqlname";
+            this.txtchsqlname.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtchsqlname.Properties.Appearance.Options.UseFont = true;
+            this.txtchsqlname.Size = new System.Drawing.Size(205, 26);
+            this.txtchsqlname.TabIndex = 1;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.label21.Location = new System.Drawing.Point(3, 11);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(84, 19);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "SQL Name";
             // 
             // panel18
             // 
@@ -3224,18 +3235,18 @@
             this.panel27.ResumeLayout(false);
             this.panel27.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtchsongaytoihan.Properties)).EndInit();
-            this.panel25.ResumeLayout(false);
-            this.panel25.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtchlaitren10tr.Properties)).EndInit();
             this.panel26.ResumeLayout(false);
             this.panel26.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtchsongayapdung.Properties)).EndInit();
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtchsqlname.Properties)).EndInit();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtchlaiduoi10tr.Properties)).EndInit();
+            this.panel25.ResumeLayout(false);
+            this.panel25.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtchlaitren10tr.Properties)).EndInit();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtchsqlname.Properties)).EndInit();
             this.panel18.ResumeLayout(false);
             this.panel18.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtchaccserver.Properties)).EndInit();
@@ -3520,6 +3531,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMoTa6;
         private DevExpress.XtraGrid.Columns.GridColumn colCancel;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox cmbtcloaigiaodich;
+        private DevExpress.XtraGrid.Columns.GridColumn colTonKho;
     }
 }
 
