@@ -23,7 +23,6 @@ namespace camdochieuduong.Function
     }
     public class myFunction
     {
-        public static Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
         public static void VerifyNumberInputOnly (object sender, KeyPressEventArgs e)
           {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -39,7 +38,7 @@ namespace camdochieuduong.Function
            }
         public static void CancelBienNhan(string IDBienNhan)
         {
-            
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             //Update Giao Dich Table
             Model.GiaoDich GD = camdochieuduongEntity.GiaoDiches.Find(IDBienNhan);
             if (GD.LoaiGiaoDich == Constants.CamDo)
@@ -78,7 +77,7 @@ namespace camdochieuduong.Function
                                    
         {
             //Save data
-          
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             Model.GiaoDich giaodich = new Model.GiaoDich();
             giaodich.IDBienNhan = I_IDBienNhan;
             giaodich.NgayCam = DateTime.Parse(I_NgayCam);
@@ -97,7 +96,7 @@ namespace camdochieuduong.Function
             camdochieuduongEntity.SaveChanges();
         }
         public static string CreateIDBienNhan() {
- 
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             Model.NumberRange nr = camdochieuduongEntity.NumberRanges.Single();
             var currYear = DateTime.Now.Year.ToString();
             var currYear2 = currYear.Substring(currYear.Length - 2);
@@ -128,6 +127,7 @@ namespace camdochieuduong.Function
         }
         public static void PrintReport(string IDBienNhan, string reportPath, string PrinterName)
         {
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             Model.GiaoDich GD = camdochieuduongEntity.GiaoDiches.Find(IDBienNhan);
             var TienCamChu = "";
             if (GD.TienCam != 0)
@@ -167,6 +167,7 @@ namespace camdochieuduong.Function
         }
         public static void PrintReportA8(string IDBienNhan, string reportPath, string PrinterName, string CamThem, string ThayGiayCho)
         {
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             Model.GiaoDich GD = camdochieuduongEntity.GiaoDiches.Find(IDBienNhan);
 
             CrystalDecisions.CrystalReports.Engine.ReportDocument rptDoc =

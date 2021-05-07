@@ -32,6 +32,7 @@ namespace camdochieuduong
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMainCD));
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            this.repositoryItemMemoEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.xtraTabControl = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
@@ -83,7 +84,6 @@ namespace camdochieuduong
             this.colLoaiGiaoDich = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colThayTheCho = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
-            this.btnBaoMat = new DevExpress.XtraEditors.SimpleButton();
             this.lblSum = new System.Windows.Forms.Label();
             this.btntgChuoc = new DevExpress.XtraEditors.SimpleButton();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
@@ -97,7 +97,6 @@ namespace camdochieuduong
             this.colIDBienNhan1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKhachHang1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMoTa1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemMemoEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.colTienCam1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTienLai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNgayCam1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -171,6 +170,7 @@ namespace camdochieuduong
             this.colThanhToan1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTonKho = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl11 = new DevExpress.XtraEditors.GroupControl();
+            this.btnBaoMat = new DevExpress.XtraEditors.SimpleButton();
             this.btntk1Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.btntk1Print = new DevExpress.XtraEditors.SimpleButton();
             this.btntk1Search = new DevExpress.XtraEditors.SimpleButton();
@@ -225,6 +225,7 @@ namespace camdochieuduong
             this.colTienLai4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupControl13 = new DevExpress.XtraEditors.GroupControl();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.btnkhCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnkhSearch = new DevExpress.XtraEditors.SimpleButton();
             this.txtkhdenngay = new System.Windows.Forms.DateTimePicker();
             this.txtkhtungay = new System.Windows.Forms.DateTimePicker();
@@ -281,7 +282,7 @@ namespace camdochieuduong
             this.tbTimKiemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbGiaoDichBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsThuChiBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnkhCancel = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl)).BeginInit();
             this.xtraTabControl.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -317,7 +318,6 @@ namespace camdochieuduong
             ((System.ComponentModel.ISupportInitialize)(this.gridGiaoDichBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridGiaoDich)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -414,6 +414,11 @@ namespace camdochieuduong
             ((System.ComponentModel.ISupportInitialize)(this.tbGiaoDichBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsThuChiBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // repositoryItemMemoEdit5
+            // 
+            this.repositoryItemMemoEdit5.Name = "repositoryItemMemoEdit5";
+            this.repositoryItemMemoEdit5.WordWrap = false;
             // 
             // xtraTabControl
             // 
@@ -670,6 +675,7 @@ namespace camdochieuduong
             this.txtgiatrimonhang.Properties.Appearance.Options.UseFont = true;
             this.txtgiatrimonhang.Properties.Mask.EditMask = "n0";
             this.txtgiatrimonhang.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtgiatrimonhang.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtgiatrimonhang.Size = new System.Drawing.Size(173, 26);
             this.txtgiatrimonhang.TabIndex = 6;
             this.txtgiatrimonhang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtgiatrimonhang_KeyPress);
@@ -809,9 +815,9 @@ namespace camdochieuduong
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupControl5.Controls.Add(this.gridtgHistory);
-            this.groupControl5.Location = new System.Drawing.Point(4, 360);
+            this.groupControl5.Location = new System.Drawing.Point(4, 449);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(1535, 433);
+            this.groupControl5.Size = new System.Drawing.Size(1535, 344);
             this.groupControl5.TabIndex = 2;
             this.groupControl5.Text = "Lịch Sử Giao Dịch";
             // 
@@ -828,7 +834,7 @@ namespace camdochieuduong
             this.gridtgHistory.Name = "gridtgHistory";
             this.gridtgHistory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemMemoEdit1});
-            this.gridtgHistory.Size = new System.Drawing.Size(1524, 406);
+            this.gridtgHistory.Size = new System.Drawing.Size(1524, 317);
             this.gridtgHistory.TabIndex = 0;
             this.gridtgHistory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -943,7 +949,6 @@ namespace camdochieuduong
             // 
             this.groupControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupControl4.Controls.Add(this.btnBaoMat);
             this.groupControl4.Controls.Add(this.lblSum);
             this.groupControl4.Controls.Add(this.btntgChuoc);
             this.groupControl4.Controls.Add(this.btnClear);
@@ -952,22 +957,9 @@ namespace camdochieuduong
             this.groupControl4.Controls.Add(this.gridThayGiay);
             this.groupControl4.Location = new System.Drawing.Point(4, 91);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(1532, 263);
+            this.groupControl4.Size = new System.Drawing.Size(1532, 352);
             this.groupControl4.TabIndex = 1;
             this.groupControl4.Text = "Danh Sách Hóa Đơn";
-            // 
-            // btnBaoMat
-            // 
-            this.btnBaoMat.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnBaoMat.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.btnBaoMat.Appearance.Options.UseFont = true;
-            this.btnBaoMat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBaoMat.ImageOptions.Image")));
-            this.btnBaoMat.Location = new System.Drawing.Point(1330, 220);
-            this.btnBaoMat.Name = "btnBaoMat";
-            this.btnBaoMat.Size = new System.Drawing.Size(105, 33);
-            this.btnBaoMat.TabIndex = 5;
-            this.btnBaoMat.Text = "Báo Mất";
-            this.btnBaoMat.Click += new System.EventHandler(this.btnBaoMat_Click);
             // 
             // lblSum
             // 
@@ -977,7 +969,7 @@ namespace camdochieuduong
             this.lblSum.AutoSize = true;
             this.lblSum.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
             this.lblSum.ForeColor = System.Drawing.Color.Red;
-            this.lblSum.Location = new System.Drawing.Point(176, 225);
+            this.lblSum.Location = new System.Drawing.Point(168, 314);
             this.lblSum.Name = "lblSum";
             this.lblSum.Size = new System.Drawing.Size(21, 24);
             this.lblSum.TabIndex = 12;
@@ -989,7 +981,7 @@ namespace camdochieuduong
             this.btntgChuoc.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.btntgChuoc.Appearance.Options.UseFont = true;
             this.btntgChuoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btntgChuoc.ImageOptions.Image")));
-            this.btntgChuoc.Location = new System.Drawing.Point(1037, 220);
+            this.btntgChuoc.Location = new System.Drawing.Point(1033, 308);
             this.btntgChuoc.Name = "btntgChuoc";
             this.btntgChuoc.Size = new System.Drawing.Size(105, 33);
             this.btntgChuoc.TabIndex = 11;
@@ -1002,7 +994,7 @@ namespace camdochieuduong
             this.btnClear.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.btnClear.Appearance.Options.UseFont = true;
             this.btnClear.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.ImageOptions.Image")));
-            this.btnClear.Location = new System.Drawing.Point(1178, 220);
+            this.btnClear.Location = new System.Drawing.Point(1174, 308);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(105, 33);
             this.btnClear.TabIndex = 10;
@@ -1016,9 +1008,9 @@ namespace camdochieuduong
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(85, 223);
+            this.label1.Location = new System.Drawing.Point(77, 312);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 25);
+            this.label1.Size = new System.Drawing.Size(80, 26);
             this.label1.TabIndex = 1;
             this.label1.Text = "  Tổng:";
             // 
@@ -1028,7 +1020,7 @@ namespace camdochieuduong
             this.btntgThayGiay.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.btntgThayGiay.Appearance.Options.UseFont = true;
             this.btntgThayGiay.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btntgThayGiay.ImageOptions.Image")));
-            this.btntgThayGiay.Location = new System.Drawing.Point(897, 220);
+            this.btntgThayGiay.Location = new System.Drawing.Point(893, 308);
             this.btntgThayGiay.Name = "btntgThayGiay";
             this.btntgThayGiay.Size = new System.Drawing.Size(105, 33);
             this.btntgThayGiay.TabIndex = 9;
@@ -1044,9 +1036,7 @@ namespace camdochieuduong
             this.gridThayGiay.Location = new System.Drawing.Point(6, 24);
             this.gridThayGiay.MainView = this.gridView2;
             this.gridThayGiay.Name = "gridThayGiay";
-            this.gridThayGiay.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemMemoEdit5});
-            this.gridThayGiay.Size = new System.Drawing.Size(1521, 234);
+            this.gridThayGiay.Size = new System.Drawing.Size(1521, 323);
             this.gridThayGiay.TabIndex = 0;
             this.gridThayGiay.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1123,11 +1113,6 @@ namespace camdochieuduong
             this.colMoTa1.Visible = true;
             this.colMoTa1.VisibleIndex = 6;
             this.colMoTa1.Width = 302;
-            // 
-            // repositoryItemMemoEdit5
-            // 
-            this.repositoryItemMemoEdit5.Name = "repositoryItemMemoEdit5";
-            this.repositoryItemMemoEdit5.WordWrap = false;
             // 
             // colTienCam1
             // 
@@ -1849,6 +1834,7 @@ namespace camdochieuduong
             // 
             this.groupControl11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl11.Controls.Add(this.btnBaoMat);
             this.groupControl11.Controls.Add(this.btntk1Cancel);
             this.groupControl11.Controls.Add(this.btntk1Print);
             this.groupControl11.Controls.Add(this.btntk1Search);
@@ -1867,12 +1853,23 @@ namespace camdochieuduong
             this.groupControl11.TabIndex = 2;
             this.groupControl11.Text = "Tìm Kiếm";
             // 
+            // btnBaoMat
+            // 
+            this.btnBaoMat.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBaoMat.Appearance.Options.UseFont = true;
+            this.btnBaoMat.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBaoMat.ImageOptions.Image")));
+            this.btnBaoMat.Location = new System.Drawing.Point(1420, 29);
+            this.btnBaoMat.Name = "btnBaoMat";
+            this.btnBaoMat.Size = new System.Drawing.Size(105, 33);
+            this.btnBaoMat.TabIndex = 15;
+            this.btnBaoMat.Text = "Báo Mất";
+            // 
             // btntk1Cancel
             // 
             this.btntk1Cancel.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btntk1Cancel.Appearance.Options.UseFont = true;
             this.btntk1Cancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btntk1Cancel.ImageOptions.Image")));
-            this.btntk1Cancel.Location = new System.Drawing.Point(1401, 75);
+            this.btntk1Cancel.Location = new System.Drawing.Point(1420, 75);
             this.btntk1Cancel.Name = "btntk1Cancel";
             this.btntk1Cancel.Size = new System.Drawing.Size(105, 33);
             this.btntk1Cancel.TabIndex = 14;
@@ -2396,6 +2393,18 @@ namespace camdochieuduong
             this.panel22.Size = new System.Drawing.Size(1521, 40);
             this.panel22.TabIndex = 0;
             // 
+            // btnkhCancel
+            // 
+            this.btnkhCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnkhCancel.Appearance.Options.UseFont = true;
+            this.btnkhCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnkhCancel.ImageOptions.Image")));
+            this.btnkhCancel.Location = new System.Drawing.Point(650, 4);
+            this.btnkhCancel.Name = "btnkhCancel";
+            this.btnkhCancel.Size = new System.Drawing.Size(105, 33);
+            this.btnkhCancel.TabIndex = 15;
+            this.btnkhCancel.Text = "Hủy Đơn";
+            this.btnkhCancel.Click += new System.EventHandler(this.btnkhCancel_Click);
+            // 
             // btnkhSearch
             // 
             this.btnkhSearch.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2495,6 +2504,7 @@ namespace camdochieuduong
             this.btntcCancel.Size = new System.Drawing.Size(111, 33);
             this.btntcCancel.TabIndex = 19;
             this.btntcCancel.Text = "Hủy Phiếu";
+            this.btntcCancel.Click += new System.EventHandler(this.btntcCancel_Click);
             // 
             // panel31
             // 
@@ -2534,6 +2544,7 @@ namespace camdochieuduong
             this.btntcSave.Size = new System.Drawing.Size(105, 33);
             this.btntcSave.TabIndex = 18;
             this.btntcSave.Text = "Lưu";
+            this.btntcSave.Click += new System.EventHandler(this.btntcSave_Click);
             // 
             // panel30
             // 
@@ -2550,6 +2561,9 @@ namespace camdochieuduong
             this.txttcsotien.Name = "txttcsotien";
             this.txttcsotien.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txttcsotien.Properties.Appearance.Options.UseFont = true;
+            this.txttcsotien.Properties.Mask.EditMask = "n0";
+            this.txttcsotien.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txttcsotien.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txttcsotien.Size = new System.Drawing.Size(190, 26);
             this.txttcsotien.TabIndex = 1;
             // 
@@ -2939,18 +2953,6 @@ namespace camdochieuduong
             this.dsThuChiBindingSource.DataSource = this.dsThuChi;
             this.dsThuChiBindingSource.Position = 0;
             // 
-            // btnkhCancel
-            // 
-            this.btnkhCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnkhCancel.Appearance.Options.UseFont = true;
-            this.btnkhCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnkhCancel.Location = new System.Drawing.Point(650, 4);
-            this.btnkhCancel.Name = "btnkhCancel";
-            this.btnkhCancel.Size = new System.Drawing.Size(105, 33);
-            this.btnkhCancel.TabIndex = 15;
-            this.btnkhCancel.Text = "Hủy Đơn";
-            this.btnkhCancel.Click += new System.EventHandler(this.btnkhCancel_Click);
-            // 
             // fMainCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -2960,6 +2962,7 @@ namespace camdochieuduong
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fMainCD";
             this.Text = "Cầm Đồ Chiêu Dương";
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl)).EndInit();
             this.xtraTabControl.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
@@ -2997,7 +3000,6 @@ namespace camdochieuduong
             ((System.ComponentModel.ISupportInitialize)(this.gridGiaoDichBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridGiaoDich)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -3180,7 +3182,6 @@ namespace camdochieuduong
         private Model.gridtgHistory gridtgHistory1;
         private System.Windows.Forms.Label lblSum;
         private System.Windows.Forms.BindingSource gridtgHistory1BindingSource;
-        private DevExpress.XtraEditors.SimpleButton btnBaoMat;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage3;
         private DevExpress.XtraEditors.GroupControl groupControl6;
         private System.Windows.Forms.Panel panel2;
@@ -3350,7 +3351,6 @@ namespace camdochieuduong
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit2;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit3;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit4;
-        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit5;
         private DevExpress.XtraEditors.GroupControl groupControl16;
         private DevExpress.XtraEditors.GroupControl groupControl17;
         private DevExpress.XtraEditors.SimpleButton btntcCancel;
@@ -3377,6 +3377,8 @@ namespace camdochieuduong
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox cmbtcloaigiaodich;
         private DevExpress.XtraGrid.Columns.GridColumn colTonKho;
         private DevExpress.XtraEditors.SimpleButton btnkhCancel;
+        private DevExpress.XtraEditors.SimpleButton btnBaoMat;
+        private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit5;
     }
 }
 

@@ -22,14 +22,12 @@ namespace camdochieuduong
     public partial class fMainCD : Form
     {
         
-        private static Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
-
-        
         public fMainCD()
         {
             InitializeComponent();
-           
-            if(CheckConnection() == true)
+            this.WindowState = FormWindowState.Maximized;
+
+            if (CheckConnection() == true)
             {
                 setInit();
                 getGrid1();
@@ -39,13 +37,14 @@ namespace camdochieuduong
                 MessageBox.Show("Lỗi kết nối database");
                 Environment.Exit(0);
             }
-            
-            
+
+
         }
         public static bool CheckConnection()
         {
             try
             {
+                Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
                 camdochieuduongEntity.Database.Connection.Open();
                 camdochieuduongEntity.Database.Connection.Close();
             }
@@ -59,6 +58,7 @@ namespace camdochieuduong
         {
             dsCamDo.tbCamDo.Clear();
             gridCamDo.DataSource = null;
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             var listGiaoDich = camdochieuduongEntity.GiaoDiches.ToList();
             foreach (Model.GiaoDich GD in listGiaoDich)
             {
@@ -130,6 +130,7 @@ namespace camdochieuduong
             }
 
             //Cau Hinh
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             Model.CauHinh CH = camdochieuduongEntity.CauHinhs.Find(Constants.CamDo);
             txtchlaitren10tr.Text = CH.LaiTren10Tr.ToString();
             txtchlaiduoi10tr.Text = CH.LaiDuoi10Tr.ToString();
@@ -228,14 +229,22 @@ namespace camdochieuduong
             if (e.KeyData == Keys.Enter)
             {
                 //Get ID Thay Giay
+                Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
                 Model.GiaoDich GD = camdochieuduongEntity.GiaoDiches.Find(txtmadonthaygiay.Text);
                 if (GD != null) {
 
                     bool exists = gridGiaoDich._gridGiaoDich.AsEnumerable().Where(c => c.Field<string>("IDBienNhan").Equals(GD.IDBienNhan)).Count() > 0;
                     if (!exists) //not exist in table display grid
                     {
-                        if(GD.DaChuoc != "X")
+                        if (GD.DaChuoc == "X")
                         {
+                            MessageBox.Show("Lỗi. Đơn này đã chuộc rồi!!");
+                        }else if (GD.Canceled == "X")
+                        {
+                            MessageBox.Show("Lỗi. Đơn này đã Hủy rồi!!");
+                        }
+                        else
+                        { 
                             DataRow dr = gridGiaoDich._gridGiaoDich.NewRow();
                             dr["IDBienNhan"] = GD.IDBienNhan;
                             dr["KhachHang"] = GD.KhachHang;
@@ -252,8 +261,9 @@ namespace camdochieuduong
                             double SoNgay = (currDate - toDate).TotalDays + 1;
                             dr["SoNgay"] = SoNgay;
                             double SoTienCam = Convert.ToInt64(GD.TienCam);
-                            //Model.CauHinh CH = camdochieuduongEntity.GiaoDiches.FirstOrDefault();
+                            
                             double laisuat = 0;
+                            double songayapdung = Convert.ToDouble(txtchsongayapdung.Text);
                             if (SoTienCam >= 10000000)
                             { //Lon hon hoac = 10tr, 2%
                                 laisuat = Convert.ToDouble(txtchlaitren10tr.Text);
@@ -262,7 +272,7 @@ namespace camdochieuduong
                             {
                                 laisuat = Convert.ToDouble(txtchlaiduoi10tr.Text);
                             }
-                            var roundTienLai = Math.Round((SoNgay * SoTienCam * laisuat / 100 / 1000), 3);
+                            var roundTienLai = Math.Round((SoNgay * SoTienCam * laisuat / 100 / songayapdung / 1000), MidpointRounding.AwayFromZero);
                             dr["TienLai"] = roundTienLai * 1000;
                             gridGiaoDich._gridGiaoDich.Rows.Add(dr);
                             gridThayGiay.DataSource = gridGiaoDich._gridGiaoDich;
@@ -273,9 +283,6 @@ namespace camdochieuduong
                             //Sum 
                             long Sum = Convert.ToInt64(gridView2.Columns["TienCam"].SummaryItem.SummaryValue.ToString()) + Convert.ToInt64(gridView2.Columns["TienLai"].SummaryItem.SummaryValue.ToString());
                             lblSum.Text = String.Format("{0:n0}", Sum);
-                        }else
-                        {
-                            System.Windows.Forms.MessageBox.Show("Lỗi. Đơn này đã chuộc rồi!!");
                         }
                         
 
@@ -298,6 +305,7 @@ namespace camdochieuduong
             for (int i = 0; i < gridView2.DataRowCount; i++)
             {
                 //Check and Update Giao Dich 
+                Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
                 Model.GiaoDich GD = camdochieuduongEntity.GiaoDiches.Find(gridView2.GetRowCellValue(i, "IDBienNhan").ToString());
                 if (GD.ThayTheBang == null)
                 {
@@ -358,6 +366,7 @@ namespace camdochieuduong
         {
             gridtgHistory1.History.Clear();
             gridtgHistory.DataSource = null;
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             var listGiaoDich = camdochieuduongEntity.GiaoDiches.Where(x => x.DonGoc == DonGoc).ToList();
             foreach (Model.GiaoDich GD in listGiaoDich)
             {
@@ -389,6 +398,7 @@ namespace camdochieuduong
             for (int i = 0; i < gridView2.DataRowCount; i++)
             {
                 //Check and Update Giao Dich 
+                Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
                 Model.GiaoDich GD = camdochieuduongEntity.GiaoDiches.Find(gridView2.GetRowCellValue(i, "IDBienNhan").ToString());
                 if (GD.DaChuoc == null)
                 {
@@ -411,6 +421,7 @@ namespace camdochieuduong
         }
         private void UpdateChuocHistory(string DonGoc)
         {
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             var listGiaoDich = camdochieuduongEntity.GiaoDiches.Where(x => x.DonGoc == DonGoc).ToList();
             foreach (Model.GiaoDich GD in listGiaoDich)
             {
@@ -427,6 +438,7 @@ namespace camdochieuduong
             for (int i = 0; i < gridView2.DataRowCount; i++)
             {
                 //Check and Update Giao Dich 
+                Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
                 Model.GiaoDich GD = camdochieuduongEntity.GiaoDiches.Find(gridView2.GetRowCellValue(i, "IDBienNhan").ToString());
                 if (GD.BaoMat == null)
                 {
@@ -456,6 +468,7 @@ namespace camdochieuduong
             long tienconlai = 0;
             var fromdate = txttktungay.Value.Date;
             var todate = txttkdenngay.Value.AddDays(1).Date;
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             var listGiaoDich = camdochieuduongEntity.GiaoDiches.Where(x => x.NgayCam >= fromdate && x.NgayCam <= todate).ToList();
             foreach (Model.GiaoDich GD in listGiaoDich)
             {
@@ -553,6 +566,7 @@ namespace camdochieuduong
             }
             var tiencamtu = Convert.ToInt64(txttk1tiencamtu.Text);
             var tiencamden = Convert.ToInt64(txttk1tiencamden.Text);
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             var listGiaoDich = camdochieuduongEntity.GiaoDiches.Where(x => x.NgayCam >= fromdate && x.NgayCam <= todate
                                                                         && (x.IDBienNhan.Contains(txttk1madonhang.Text) || (txttk1madonhang.Text == ""))
                                                                         && (x.KhachHang.Contains(txttk1khachhang.Text) || (txttk1khachhang.Text == ""))
@@ -564,36 +578,41 @@ namespace camdochieuduong
                                                                         ).ToList();
             foreach (Model.GiaoDich GD in listGiaoDich)
             {
-                DataRow dr = dsTimKiem.tbTimKiem.NewRow();
-                dr["IDBienNhan"] = GD.IDBienNhan;
-                dr["KhachHang"] = GD.KhachHang;
-                dr["NgayCam"] = GD.NgayCam;
-                dr["LoaiGiaoDich"] = GD.LoaiGiaoDich;
-                dr["TienLai"] = GD.TienLai;
-                dr["TienCam"] = GD.TienCam;
-                dr["MoTa"] = GD.MoTa;
-                dr["DienThoai"] = GD.DienThoai;
-                if (GD.DaChuoc != "X")
+                if(GD.Canceled != "X")
                 {
-                    dr["TonKho"] = "Còn Hàng";
-                }else
-                {
-                    dr["TonKho"] = "Đã Chuộc";
+                    DataRow dr = dsTimKiem.tbTimKiem.NewRow();
+                    dr["IDBienNhan"] = GD.IDBienNhan;
+                    dr["KhachHang"] = GD.KhachHang;
+                    dr["NgayCam"] = GD.NgayCam;
+                    dr["LoaiGiaoDich"] = GD.LoaiGiaoDich;
+                    dr["TienLai"] = GD.TienLai;
+                    dr["TienCam"] = GD.TienCam;
+                    dr["MoTa"] = GD.MoTa;
+                    dr["DienThoai"] = GD.DienThoai;
+                    if (GD.DaChuoc != "X")
+                    {
+                        dr["TonKho"] = "Còn Hàng";
+                    }
+                    else
+                    {
+                        dr["TonKho"] = "Đã Chuộc";
+                    }
+                    //summary
+                    if (GD.LoaiGiaoDich == Constants.CamDo)
+                    {
+                        dr["ThanhToan"] = GD.TienCam; ;
+                    }
+                    else if (GD.LoaiGiaoDich == Constants.ChuocDo)
+                    {
+                        dr["ThanhToan"] = GD.TienCam + GD.TienLai;
+                    }
+                    else if (GD.LoaiGiaoDich == Constants.ThayGiay)
+                    {
+                        dr["ThanhToan"] = GD.TienLai;
+                    }
+                    dsTimKiem.tbTimKiem.Rows.Add(dr);
                 }
-                //summary
-                if (GD.LoaiGiaoDich == Constants.CamDo)
-                {
-                    dr["ThanhToan"] = GD.TienCam; ;
-                }
-                else if (GD.LoaiGiaoDich == Constants.ChuocDo)
-                {
-                    dr["ThanhToan"] = GD.TienCam + GD.TienLai;
-                }
-                else if (GD.LoaiGiaoDich == Constants.ThayGiay)
-                {
-                    dr["ThanhToan"] = GD.TienLai;
-                }
-                dsTimKiem.tbTimKiem.Rows.Add(dr);
+       
             }
             gridTimKiem.DataSource = dsTimKiem.tbTimKiem;
         }
@@ -614,6 +633,7 @@ namespace camdochieuduong
         }
         public void getKiemHang()
         {
+            
             gridKiemHang.DataSource = null;
             dsKiemHang.tbKiemHang.Clear();
             int count = 0;
@@ -621,6 +641,7 @@ namespace camdochieuduong
 
             var fromdate = txtkhtungay.Value.Date;
             var todate = txtkhdenngay.Value.AddDays(1).Date;
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             var listGiaoDich = camdochieuduongEntity.GiaoDiches.Where(x => x.NgayCam >= fromdate && x.NgayCam <= todate).ToList();
             foreach (Model.GiaoDich GD in listGiaoDich)
             {
@@ -647,6 +668,7 @@ namespace camdochieuduong
 
                     double SoTienCam = Convert.ToInt64(GD.TienCam);
                     double laisuat = 0;
+                    double songayapdung = Convert.ToDouble(txtchsongayapdung.Text);
                     if (SoTienCam >= 10000000)
                     { //Lon hon hoac = 10tr, 2%
                         laisuat = Convert.ToDouble(txtchlaitren10tr.Text);
@@ -655,7 +677,7 @@ namespace camdochieuduong
                     {
                         laisuat = Convert.ToDouble(txtchlaiduoi10tr.Text);
                     }
-                    var roundTienLai = Math.Round((SoNgay * SoTienCam * laisuat / 100 / 1000), 3);
+                    var roundTienLai = Math.Round((SoNgay * SoTienCam * laisuat / 100 / songayapdung / 1000), MidpointRounding.AwayFromZero);
                     dr["TienLai"] = roundTienLai * 1000;
 
                     dsKiemHang.tbKiemHang.Rows.Add(dr);
@@ -666,21 +688,7 @@ namespace camdochieuduong
             txtkhtongtiencam.Text = String.Format("{0:n0}", sum);
         }
 
-        private void btntcSave_Click(object sender, EventArgs e)
-        {
 
-
-            //Save data
-            Model.ThuChi thuchi = new Model.ThuChi();
-
-            thuchi.LoaiGiaoDich = cmbtcthuchi.Text;
-            thuchi.NgayNhap = DateTime.Parse(txttcngaynhap.Text);
-            thuchi.SoTien = Convert.ToInt64(txttcsotien.Text.Replace(",", "")); ;
-            thuchi.MoTa = txttcmota.Text;
-            camdochieuduongEntity.ThuChis.Add(thuchi);
-            camdochieuduongEntity.SaveChanges();
-            showThuChi();
-        }
 
         private void btntcSearch_Click(object sender, EventArgs e)
         {
@@ -692,40 +700,25 @@ namespace camdochieuduong
             dsThuChi.tbThuChi.Clear();
             var fromdate = txttctungay.Value.Date;
             var todate = txttcdenngay.Value.AddDays(1).Date;
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             var listThuChi = camdochieuduongEntity.ThuChis.Where(x => x.NgayNhap >= fromdate && x.NgayNhap <= todate).ToList();
             foreach (Model.ThuChi TC in listThuChi)
             {
-                DataRow dr = dsThuChi.tbThuChi.NewRow();
-                dr["MaThuChi"] = TC.MaThuChi;
-                dr["NgayNhap"] = TC.NgayNhap;
-                dr["LoaiGiaoDich"] = TC.LoaiGiaoDich;
-                dr["SoTien"] = TC.SoTien;
-                dr["MoTa"] = TC.MoTa;
-                dr["Cancel"] = TC.Cancel;
-                dsThuChi.tbThuChi.Rows.Add(dr);
+                if(TC.Cancel != "X")
+                {
+                    DataRow dr = dsThuChi.tbThuChi.NewRow();
+                    dr["MaThuChi"] = TC.MaThuChi;
+                    dr["NgayNhap"] = TC.NgayNhap;
+                    dr["LoaiGiaoDich"] = TC.LoaiGiaoDich;
+                    dr["SoTien"] = TC.SoTien;
+                    dr["MoTa"] = TC.MoTa;
+                    dr["Cancel"] = TC.Cancel;
+                    dsThuChi.tbThuChi.Rows.Add(dr);
+                }
+
 
             }
             gridThuChi.DataSource = dsThuChi.tbThuChi;
-        }
-
-        private void btntcCancel_Click(object sender, EventArgs e)
-        {
-
-            GridView gridView = gridThuChi.FocusedView as GridView;
-            var selectId = Convert.ToInt64(gridView.GetFocusedRowCellValue("MaThuChi"));
-
-            //Update Thu Chi Table
-            Model.ThuChi TC = camdochieuduongEntity.ThuChis.Find(selectId);
-            if (TC.NgayNhap.Value.Date == DateTime.Now.Date) {
-                TC.Cancel = "X";
-                camdochieuduongEntity.SaveChanges();
-                showThuChi();
-            }
-            else
-            {
-                MessageBox.Show("Không thể xóa phiếu thu chi ngày quá khứ");
-            }
-
         }
 
         private void btntk1Print_Click(object sender, EventArgs e)
@@ -736,6 +729,7 @@ namespace camdochieuduong
             myFunction.PrintToPrinterA4(selectId, a4printer);
 
             //Update Giao Dich Table
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             Model.GiaoDich GD = camdochieuduongEntity.GiaoDiches.Find(selectId);
             GD.InBienNhan++;
             camdochieuduongEntity.SaveChanges();
@@ -768,6 +762,7 @@ namespace camdochieuduong
 
         private void btnSaveConfig_Click(object sender, EventArgs e)
         {
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             Model.CauHinh CH = camdochieuduongEntity.CauHinhs.Find(Constants.CamDo);
             if (CH == null)
             {
@@ -801,6 +796,41 @@ namespace camdochieuduong
             ////Get new data to Grid
             getGrid1();
             getKiemHang();
+        }
+
+        private void btntcSave_Click(object sender, EventArgs e)
+        {
+            //Save data
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
+            Model.ThuChi thuchi = new Model.ThuChi();
+
+            thuchi.LoaiGiaoDich = cmbtcthuchi.Text;
+            thuchi.NgayNhap = DateTime.Parse(txttcngaynhap.Text);
+            thuchi.SoTien = Convert.ToInt64(txttcsotien.Text.Replace(",", "")); ;
+            thuchi.MoTa = txttcmota.Text;
+            camdochieuduongEntity.ThuChis.Add(thuchi);
+            camdochieuduongEntity.SaveChanges();
+            showThuChi();
+        }
+
+        private void btntcCancel_Click(object sender, EventArgs e)
+        {
+            GridView gridView = gridThuChi.FocusedView as GridView;
+            var selectId = Convert.ToInt64(gridView.GetFocusedRowCellValue("MaThuChi"));
+
+            //Update Thu Chi Table
+            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
+            Model.ThuChi TC = camdochieuduongEntity.ThuChis.Find(selectId);
+            if (TC.NgayNhap.Value.Date == DateTime.Now.Date)
+            {
+                TC.Cancel = "X";
+                camdochieuduongEntity.SaveChanges();
+                showThuChi();
+            }
+            else
+            {
+                MessageBox.Show("Không thể xóa phiếu thu chi ngày quá khứ");
+            }
         }
     }
 }
