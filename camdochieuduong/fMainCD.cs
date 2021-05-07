@@ -15,21 +15,45 @@ using DevExpress.XtraGrid;
 using camdochieuduong.Function;
 using System.Diagnostics;
 using camdochieuduong.Model;
+using System.Data.SqlClient;
 
 namespace camdochieuduong
 {
     public partial class fMainCD : Form
     {
         
-        private Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
+        private static Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
 
         
         public fMainCD()
         {
             InitializeComponent();
-            setInit();
-            getGrid1();
+           
+            if(CheckConnection() == true)
+            {
+                setInit();
+                getGrid1();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi kết nối database");
+                Environment.Exit(0);
+            }
             
+            
+        }
+        public static bool CheckConnection()
+        {
+            try
+            {
+                camdochieuduongEntity.Database.Connection.Open();
+                camdochieuduongEntity.Database.Connection.Close();
+            }
+            catch (SqlException)
+            {
+                return false;
+            }
+            return true;
         }
         private void getGrid1()
         {
@@ -210,43 +234,50 @@ namespace camdochieuduong
                     bool exists = gridGiaoDich._gridGiaoDich.AsEnumerable().Where(c => c.Field<string>("IDBienNhan").Equals(GD.IDBienNhan)).Count() > 0;
                     if (!exists) //not exist in table display grid
                     {
-                        DataRow dr = gridGiaoDich._gridGiaoDich.NewRow();
-                        dr["IDBienNhan"] = GD.IDBienNhan;
-                        dr["KhachHang"] = GD.KhachHang;
-                        //dr["NgayCam"] = DateTime.Parse(GD.NgayCam).Date;
-                        dr["NgayCam"] = GD.NgayCam;
-                        dr["MoTa"] = GD.MoTa;
-                        dr["TienCam"] = GD.TienCam;
-                        dr["GiaTri"] = GD.GiaTri;
-                        dr["DienThoai"] = GD.DienThoai;
-                        dr["TruHotCon"] = GD.TruHotCon;
-                        dr["DonGoc"] = GD.DonGoc;
-                        DateTime currDate = DateTime.Now.Date;
-                        DateTime toDate = GD.NgayCam.Value.Date;
-                        double SoNgay = (currDate - toDate).TotalDays + 1;
-                        dr["SoNgay"] = SoNgay;
-                        double SoTienCam = Convert.ToInt64(GD.TienCam);
-                        //Model.CauHinh CH = camdochieuduongEntity.GiaoDiches.FirstOrDefault();
-                        double laisuat = 0;
-                        if (SoTienCam >= 10000000)
-                        { //Lon hon hoac = 10tr, 2%
-                            laisuat = Convert.ToDouble(txtchlaitren10tr.Text);
-                        }
-                        else
+                        if(GD.DaChuoc != "X")
                         {
-                            laisuat = Convert.ToDouble(txtchlaiduoi10tr.Text);
+                            DataRow dr = gridGiaoDich._gridGiaoDich.NewRow();
+                            dr["IDBienNhan"] = GD.IDBienNhan;
+                            dr["KhachHang"] = GD.KhachHang;
+                            //dr["NgayCam"] = DateTime.Parse(GD.NgayCam).Date;
+                            dr["NgayCam"] = GD.NgayCam;
+                            dr["MoTa"] = GD.MoTa;
+                            dr["TienCam"] = GD.TienCam;
+                            dr["GiaTri"] = GD.GiaTri;
+                            dr["DienThoai"] = GD.DienThoai;
+                            dr["TruHotCon"] = GD.TruHotCon;
+                            dr["DonGoc"] = GD.DonGoc;
+                            DateTime currDate = DateTime.Now.Date;
+                            DateTime toDate = GD.NgayCam.Value.Date;
+                            double SoNgay = (currDate - toDate).TotalDays + 1;
+                            dr["SoNgay"] = SoNgay;
+                            double SoTienCam = Convert.ToInt64(GD.TienCam);
+                            //Model.CauHinh CH = camdochieuduongEntity.GiaoDiches.FirstOrDefault();
+                            double laisuat = 0;
+                            if (SoTienCam >= 10000000)
+                            { //Lon hon hoac = 10tr, 2%
+                                laisuat = Convert.ToDouble(txtchlaitren10tr.Text);
+                            }
+                            else
+                            {
+                                laisuat = Convert.ToDouble(txtchlaiduoi10tr.Text);
+                            }
+                            var roundTienLai = Math.Round((SoNgay * SoTienCam * laisuat / 100 / 1000), 3);
+                            dr["TienLai"] = roundTienLai * 1000;
+                            gridGiaoDich._gridGiaoDich.Rows.Add(dr);
+                            gridThayGiay.DataSource = gridGiaoDich._gridGiaoDich;
+                            //clear ma don hang
+                            txtmadonthaygiay.Text = "";
+                            //Get History
+                            GetHistory(GD.DonGoc);
+                            //Sum 
+                            long Sum = Convert.ToInt64(gridView2.Columns["TienCam"].SummaryItem.SummaryValue.ToString()) + Convert.ToInt64(gridView2.Columns["TienLai"].SummaryItem.SummaryValue.ToString());
+                            lblSum.Text = String.Format("{0:n0}", Sum);
+                        }else
+                        {
+                            System.Windows.Forms.MessageBox.Show("Lỗi. Đơn này đã chuộc rồi!!");
                         }
-                        var roundTienLai = Math.Round((SoNgay * SoTienCam * laisuat / 100 / 1000), 3);
-                        dr["TienLai"] = roundTienLai * 1000;
-                        gridGiaoDich._gridGiaoDich.Rows.Add(dr);
-                        gridThayGiay.DataSource = gridGiaoDich._gridGiaoDich;
-                        //clear ma don hang
-                        txtmadonthaygiay.Text = "";
-                        //Get History
-                        GetHistory(GD.DonGoc);
-                        //Sum 
-                        long Sum = Convert.ToInt64(gridView2.Columns["TienCam"].SummaryItem.SummaryValue.ToString()) + Convert.ToInt64(gridView2.Columns["TienLai"].SummaryItem.SummaryValue.ToString());
-                        lblSum.Text = String.Format("{0:n0}", Sum);
+                        
 
                     }
 
@@ -579,17 +610,21 @@ namespace camdochieuduong
 
         private void btnkhSearch_Click(object sender, EventArgs e)
         {
+            getKiemHang();
+        }
+        public void getKiemHang()
+        {
             gridKiemHang.DataSource = null;
             dsKiemHang.tbKiemHang.Clear();
             int count = 0;
             long sum = 0;
-            
+
             var fromdate = txtkhtungay.Value.Date;
             var todate = txtkhdenngay.Value.AddDays(1).Date;
             var listGiaoDich = camdochieuduongEntity.GiaoDiches.Where(x => x.NgayCam >= fromdate && x.NgayCam <= todate).ToList();
             foreach (Model.GiaoDich GD in listGiaoDich)
-            {  
-                if(GD.LoaiGiaoDich == Constants.CamDo && GD.DaChuoc != "X")
+            {
+                if (GD.LoaiGiaoDich == Constants.CamDo && GD.DaChuoc != "X" && GD.Canceled != "X")
                 {
                     count++;
                     sum = sum + Convert.ToInt64(GD.TienCam);
@@ -624,7 +659,7 @@ namespace camdochieuduong
                     dr["TienLai"] = roundTienLai * 1000;
 
                     dsKiemHang.tbKiemHang.Rows.Add(dr);
-                }   
+                }
             }
             gridKiemHang.DataSource = dsKiemHang.tbKiemHang;
             txtkhtongsomon.Text = String.Format("{0:n0}", count);
@@ -714,24 +749,7 @@ namespace camdochieuduong
             GridView gridView = gridTimKiem.FocusedView as GridView;
             var selectId = gridView.GetFocusedRowCellValue("IDBienNhan").ToString();
 
-            //Update Giao Dich Table
-            Model.GiaoDich GD = camdochieuduongEntity.GiaoDiches.Find(selectId);
-            if (GD.LoaiGiaoDich == Constants.CamDo)
-            {
-                GD.Canceled = "X";
-                camdochieuduongEntity.SaveChanges();
-            }else if (GD.LoaiGiaoDich == Constants.ThayGiay) {
-                GD.Canceled = "X";
-                camdochieuduongEntity.SaveChanges();
-                //reverse thông tin đơn cũ
-                Model.GiaoDich GD1 = camdochieuduongEntity.GiaoDiches.Find(GD.ThayTheCho);
-                GD1.ThayTheBang = null; //reset thông tin thay giấy
-                GD.TienLai = 0; //reset thông tin lãi
-                camdochieuduongEntity.SaveChanges();
-            } else
-            {
-                MessageBox.Show("Không thể Huỷ");
-            }
+            myFunction.CancelBienNhan(selectId);
 
             ////Get new data to Grid
             getGrid1();
@@ -771,6 +789,18 @@ namespace camdochieuduong
 
 
 
+        }
+
+        private void btnkhCancel_Click(object sender, EventArgs e)
+        {
+            GridView gridView = gridKiemHang.FocusedView as GridView;
+            var selectId = gridView.GetFocusedRowCellValue("IDBienNhan").ToString();
+
+            myFunction.CancelBienNhan(selectId);
+
+            ////Get new data to Grid
+            getGrid1();
+            getKiemHang();
         }
     }
 }

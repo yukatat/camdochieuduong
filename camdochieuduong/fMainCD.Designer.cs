@@ -281,6 +281,7 @@ namespace camdochieuduong
             this.tbTimKiemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbGiaoDichBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsThuChiBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnkhCancel = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl)).BeginInit();
             this.xtraTabControl.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
@@ -2384,6 +2385,7 @@ namespace camdochieuduong
             // 
             // panel22
             // 
+            this.panel22.Controls.Add(this.btnkhCancel);
             this.panel22.Controls.Add(this.btnkhSearch);
             this.panel22.Controls.Add(this.txtkhdenngay);
             this.panel22.Controls.Add(this.txtkhtungay);
@@ -2937,6 +2939,18 @@ namespace camdochieuduong
             this.dsThuChiBindingSource.DataSource = this.dsThuChi;
             this.dsThuChiBindingSource.Position = 0;
             // 
+            // btnkhCancel
+            // 
+            this.btnkhCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnkhCancel.Appearance.Options.UseFont = true;
+            this.btnkhCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnkhCancel.Location = new System.Drawing.Point(650, 4);
+            this.btnkhCancel.Name = "btnkhCancel";
+            this.btnkhCancel.Size = new System.Drawing.Size(105, 33);
+            this.btnkhCancel.TabIndex = 15;
+            this.btnkhCancel.Text = "Hủy Đơn";
+            this.btnkhCancel.Click += new System.EventHandler(this.btnkhCancel_Click);
+            // 
             // fMainCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -3362,6 +3376,7 @@ namespace camdochieuduong
         private DevExpress.XtraGrid.Columns.GridColumn colCancel;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox cmbtcloaigiaodich;
         private DevExpress.XtraGrid.Columns.GridColumn colTonKho;
+        private DevExpress.XtraEditors.SimpleButton btnkhCancel;
     }
 }
 

@@ -23,6 +23,7 @@ namespace camdochieuduong.Function
     }
     public class myFunction
     {
+        public static Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
         public static void VerifyNumberInputOnly (object sender, KeyPressEventArgs e)
           {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -36,7 +37,33 @@ namespace camdochieuduong.Function
                 e.Handled = true;
             }
            }
-    public static void CreateGiaoDich(string I_IDBienNhan,
+        public static void CancelBienNhan(string IDBienNhan)
+        {
+            
+            //Update Giao Dich Table
+            Model.GiaoDich GD = camdochieuduongEntity.GiaoDiches.Find(IDBienNhan);
+            if (GD.LoaiGiaoDich == Constants.CamDo)
+            {
+                GD.Canceled = "X";
+                camdochieuduongEntity.SaveChanges();
+            }
+            else if (GD.LoaiGiaoDich == Constants.ThayGiay)
+            {
+                GD.Canceled = "X";
+                camdochieuduongEntity.SaveChanges();
+                //reverse thông tin đơn cũ
+                Model.GiaoDich GD1 = camdochieuduongEntity.GiaoDiches.Find(GD.ThayTheCho);
+                GD1.ThayTheBang = null; //reset thông tin thay giấy
+                GD.TienLai = 0; //reset thông tin lãi
+                camdochieuduongEntity.SaveChanges();
+            }
+            else
+            {
+                MessageBox.Show("Không thể Huỷ");
+            }
+            //camdochieuduongEntity.Entry(camdochieuduongEntity).Reload();
+        }
+        public static void CreateGiaoDich(string I_IDBienNhan,
                                    string I_NgayCam,
                                    string I_KhachHang,
                                    string I_DienThoai,
@@ -51,7 +78,7 @@ namespace camdochieuduong.Function
                                    
         {
             //Save data
-            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
+          
             Model.GiaoDich giaodich = new Model.GiaoDich();
             giaodich.IDBienNhan = I_IDBienNhan;
             giaodich.NgayCam = DateTime.Parse(I_NgayCam);
@@ -70,7 +97,7 @@ namespace camdochieuduong.Function
             camdochieuduongEntity.SaveChanges();
         }
         public static string CreateIDBienNhan() {
-            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
+ 
             Model.NumberRange nr = camdochieuduongEntity.NumberRanges.Single();
             var currYear = DateTime.Now.Year.ToString();
             var currYear2 = currYear.Substring(currYear.Length - 2);
@@ -101,7 +128,6 @@ namespace camdochieuduong.Function
         }
         public static void PrintReport(string IDBienNhan, string reportPath, string PrinterName)
         {
-            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             Model.GiaoDich GD = camdochieuduongEntity.GiaoDiches.Find(IDBienNhan);
             var TienCamChu = "";
             if (GD.TienCam != 0)
@@ -141,7 +167,6 @@ namespace camdochieuduong.Function
         }
         public static void PrintReportA8(string IDBienNhan, string reportPath, string PrinterName, string CamThem, string ThayGiayCho)
         {
-            Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();
             Model.GiaoDich GD = camdochieuduongEntity.GiaoDiches.Find(IDBienNhan);
 
             CrystalDecisions.CrystalReports.Engine.ReportDocument rptDoc =
