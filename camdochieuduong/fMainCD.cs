@@ -83,6 +83,7 @@ namespace camdochieuduong
         private void setInit()
         {
             var ServerClient = Constants.Server; //Sever/Client app config --important
+            var version = "v1.00";
 
             txtngaycam.Text = DateTime.Now.ToString();
             txtkhachhang.Text = "";
@@ -116,11 +117,11 @@ namespace camdochieuduong
 
             if (ServerClient ==  Constants.Server) //Server
             {
-                this.Text = this.Text + "(" + Constants.Server +")";
+                this.Text = this.Text + "(" + Constants.Server + " " + version + ")";
             }
             else //Client
             {
-                this.Text = this.Text + "(" + Constants.Client + ")";
+                this.Text = this.Text + "(" + Constants.Client + " " + version + ")";
                 xtraTabControl.TabPages[2].PageVisible = false;
                 xtraTabControl.TabPages[3].PageVisible = false;
                 xtraTabControl.TabPages[4].PageVisible = false;

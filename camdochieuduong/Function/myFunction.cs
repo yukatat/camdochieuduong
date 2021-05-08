@@ -121,8 +121,10 @@ namespace camdochieuduong.Function
         {
             //PrintReport(System.Windows.Forms.Application.StartupPath + "\\CrystalReport1.rpt", "Send To OneNote 2010");
             //PrintReport(System.Windows.Forms.Application.StartupPath + "\\CrystalReport1.rpt", "Microsoft Print to PDF");
-            var rptPath = "C:\\Users\\ManhTran\\Documents\\Visual Studio 2015\\Projects\\camdochieuduong\\camdochieuduong\\CrystalReport\\rptLapBienNhan.rpt";
+            //var rptPath = "C:\\Users\\ManhTran\\Documents\\Visual Studio 2015\\Projects\\camdochieuduong\\camdochieuduong\\CrystalReport\\rptLapBienNhan.rpt";
             //PrintReport(IDBienNhan, rptPath, "Microsoft Print to PDF");
+            var rptPath = System.Windows.Forms.Application.StartupPath + "\\rptLapBienNhan.rpt";
+
             PrintReport(IDBienNhan, rptPath, PrinterName);
         }
         public static void PrintReport(string IDBienNhan, string reportPath, string PrinterName)
