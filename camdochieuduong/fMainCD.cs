@@ -25,6 +25,7 @@ namespace camdochieuduong
         public fMainCD()
         {
             InitializeComponent();
+            InitVersion();
             this.WindowState = FormWindowState.Maximized;
 
             if (CheckConnection() == true)
@@ -38,6 +39,26 @@ namespace camdochieuduong
                 Environment.Exit(0);
             }
 
+
+        }
+        private void InitVersion() {
+            var ServerClient = Constants.Server; //Sever/Client app config --important
+            var version = "v1.01";
+
+            if (ServerClient == Constants.Server) //Server
+            {
+                this.Text = this.Text + "(" + Constants.Server + " " + version + ")";
+            }
+            else //Client
+            {
+                this.Text = this.Text + "(" + Constants.Client + " " + version + ")";
+                xtraTabControl.TabPages[2].PageVisible = false;
+                xtraTabControl.TabPages[3].PageVisible = false;
+                xtraTabControl.TabPages[4].PageVisible = false;
+                xtraTabControl.TabPages[5].PageVisible = false;
+                xtraTabControl.TabPages[6].PageVisible = false;
+
+            }
 
         }
         public static bool CheckConnection()
@@ -82,8 +103,6 @@ namespace camdochieuduong
         }
         private void setInit()
         {
-            var ServerClient = Constants.Server; //Sever/Client app config --important
-            var version = "v1.00";
 
             txtngaycam.Text = DateTime.Now.ToString();
             txtkhachhang.Text = "";
@@ -102,6 +121,8 @@ namespace camdochieuduong
             btnSave.Enabled = true;
             btnClear.Enabled = true;
             btntk1Cancel.Enabled = true;
+            //Thay Giay
+            lblSum.Text = "0";
             //
             txttk1loaigiaodich.Items.Clear();
             txttk1loaigiaodich.Items.Add(Constants.CamDo);
@@ -114,21 +135,6 @@ namespace camdochieuduong
             cmbtcthuchi.Items.Clear();
             cmbtcthuchi.Items.Add(Constants.Thu);
             cmbtcthuchi.Items.Add(Constants.Chi);
-
-            if (ServerClient ==  Constants.Server) //Server
-            {
-                this.Text = this.Text + "(" + Constants.Server + " " + version + ")";
-            }
-            else //Client
-            {
-                this.Text = this.Text + "(" + Constants.Client + " " + version + ")";
-                xtraTabControl.TabPages[2].PageVisible = false;
-                xtraTabControl.TabPages[3].PageVisible = false;
-                xtraTabControl.TabPages[4].PageVisible = false;
-                xtraTabControl.TabPages[5].PageVisible = false;
-                xtraTabControl.TabPages[6].PageVisible = false;
-
-            }
 
             //Cau Hinh
             Model.camdochieuduongEntities camdochieuduongEntity = new Model.camdochieuduongEntities();

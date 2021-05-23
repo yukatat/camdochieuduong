@@ -119,10 +119,6 @@ namespace camdochieuduong.Function
         }
         public static void PrintToPrinterA4(string IDBienNhan, string PrinterName)
         {
-            //PrintReport(System.Windows.Forms.Application.StartupPath + "\\CrystalReport1.rpt", "Send To OneNote 2010");
-            //PrintReport(System.Windows.Forms.Application.StartupPath + "\\CrystalReport1.rpt", "Microsoft Print to PDF");
-            //var rptPath = "C:\\Users\\ManhTran\\Documents\\Visual Studio 2015\\Projects\\camdochieuduong\\camdochieuduong\\CrystalReport\\rptLapBienNhan.rpt";
-            //PrintReport(IDBienNhan, rptPath, "Microsoft Print to PDF");
             var rptPath = System.Windows.Forms.Application.StartupPath + "\\rptLapBienNhan.rpt";
 
             PrintReport(IDBienNhan, rptPath, PrinterName);
@@ -155,10 +151,16 @@ namespace camdochieuduong.Function
             rptDoc.SetParameterValue("P_NgayCam", GD.NgayCam.ToString());
             rptDoc.SetParameterValue("P_GioCam", GD.NgayCam.Value.TimeOfDay.ToString());
             rptDoc.SetParameterValue("P_TienCamChu", TienCamChu);
-            rptDoc.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Landscape;
-            rptDoc.PrintOptions.PaperSize = CrystalDecisions.Shared.PaperSize.PaperA5;
+
+            rptDoc.PrintOptions.ApplyPageMargins(new CrystalDecisions.Shared.PageMargins(0, 0, 0, 0));
+            rptDoc.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
+            rptDoc.PrintOptions.PaperSize = CrystalDecisions.Shared.PaperSize.PaperA4;
+
+
             rptDoc.PrintOptions.PrinterName = PrinterName.Trim();
-            rptDoc.PrintToPrinter(1, false, 1, 1);
+            rptDoc.PrintToPrinter(1, false, 0, 0);
+
+
         }
         public static void PrintToPrinterA8(string IDBienNhan,string CamThem, string ThayGiayCho)
         {
